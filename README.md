@@ -26,7 +26,10 @@ La única salida del proyecto es cuando seleccionas la opción "Mostrar Inventar
 De momento el proyecto busca cumplir con las siguientes competencias:
 ### SICT0301: Evalúa los componentes
 - Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa:
-  Considero que esto es correcto, pues en el mismo porgrama incluyo el análisis de complejidad (no sólo del sort sino también de las demás acciones pero creo que eso estuvo de más) del sort, donde, debido a que este trabaja con una variante del Intro sort, luego de una investigación vi que su complejidad es siempre O(n log n), tanto para los mejores casos como para los peores y los promedios.
+  Tipo de sort: variante del Intro sort
+  - Mejor caso: O(n log n)
+  - Caso promedio: O(n log n)
+  - Peor Caso: O(n log n) 
 ### SICT0302: Toma decisiones 
 - Selecciona un algoritmo de ordenamiento adecuado al problema y lo usa correctamente:
   En este caso, como ya mencioné anteriormente, decidí trabajar con la función sort que viene en la librería <algorithm> de C++, y su uso es el correcto en cada caso que se usa, pues, dependiendo de cómo se busque ordenar la información, hay una versión diferente del mismo sort para cumplir con cada una de estas diferentes formas de ordenar el inventario
