@@ -26,6 +26,7 @@ La única salida del proyecto es cuando seleccionas la opción "Mostrar Inventar
 De momento el proyecto busca cumplir con las siguientes competencias:
 ### SICT0301: Evalúa los componentes
 - Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa:
+  
   Tipo de sort: variante del Intro sort
   - Mejor caso: O(n log n)
   - Caso promedio: O(n log n)
