@@ -9,6 +9,7 @@
 #include "Llaves.h"
 #include "Varios.h"
 #include "Sort.h"
+#include "DataStructures.h"
 
 using namespace std;
 
@@ -126,6 +127,7 @@ int main(){
     cout << "4. Agregar Favorito" << endl;
     cout << "5. Quitar Favorito" << endl;
     cout << "6. Ordenar Inventario" << endl;
+    cout << "7. Buscar Objeto" << endl;
     cin >> accion;
 
     //Se genera el código de la acción 1: agregar un objeto
@@ -481,7 +483,7 @@ int main(){
       //Peor caso: O(n log n)
       //Caso Promedio: O(n log n)
       Sort sorter;
-      cout << "¿Cómo quieres ordenar tu inventario? (Nombre, Valor, Daño, Protección)" << endl;
+      cout << "¿Cómo quieres ordenar tu inventario? (Nombre, Valor, Daño, Protección, BST_Arma(Àrbol de Bùsqueda Binaria para Armas)" << endl;
       cin >> accion;
       cout << "¿De forma Ascendente o Descendente?" << endl;
       string orden;
@@ -525,10 +527,47 @@ int main(){
           sorter.sortProtectionAscendant(inventarioAtuendo);
         } else if (orden == "Descendente") {
           sorter.sortProtectionDescendant(inventarioAtuendo);
-        } else{
-          cout << "Opción invalida" << endl;
+        } 
+      } else if(accion == "BST_Arma"){ 
+        // Creo un árbol de búsqueda binaria para las armas
+        BST<Armas*> bstArmas;
+        // Agrego las armas al BST
+        for (Armas* arma : inventarioArmas) {
+            bstArmas.add(arma);
         }
+        if (orden == "Ascendente") {
+          cout << bstArmas.visit();
+        } else if (orden == "Descendente") {
+          cout << bstArmas.visitDescendant();
+        }
+      } else{
+        cout << "Opción invalida" << endl;
       }
+        
+  } else if(accion == "7") {
+  //Implemento listas doblemente enlazadas para usarlas en la búsqueda de objetos.
+  //Esta implementación de búsqueda tiene la siguiente dificultad:
+  //Mejor caso: O(1)
+  //Peor caso: O(n)
+  //Caso Promedio: O(n)
+    string nombreBuscar;
+    cout << "Escriba el nombre del objeto que desea buscar: " << endl;
+    cin >> nombreBuscar;
+    // Variable para verificar si el objeto fue encontrado
+    bool encontrado = false;
+    // Buscamos en el inventario usando el método get()
+    for (int i = 0; i < inventario.size(); i++) {
+      if (inventario[i]->getNombre() == nombreBuscar) {
+        cout << "Objeto encontrado!: " << endl;
+        cout << inventario[i]->printInformacion() << endl; // Mostrar información del objeto
+        cout << "Ubicación en el inventario: " << (i + 1) << endl; // Mostrar la posición (i + 1 para empezar desde 1)
+        encontrado = true;
+        break; // Detenemos la búsqueda después de encontrar el objeto
+      }
+    }
+    if (!encontrado) {
+        cout << "El objeto no fue encontrado en el inventario." << endl;
+    }
   }
     //Para ver si el usuario quiere realizar alguna otra acción
     cout << "¿Deseas hacer algo más? (y/n)\n" << endl;
