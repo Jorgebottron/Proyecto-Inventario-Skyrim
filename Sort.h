@@ -13,6 +13,10 @@
 #include "Varios.h"
 using namespace std;
 
+//En esta parte incluyo el Sort. Usé la función sort que se encuentra en la librería <algorithm>, donde esta función trabaja con una variante del Intro sort, cuya complejidad es la siguiente:
+//Mejor caso: O(n log n)
+//Peor caso: O(n log n)
+//Caso Promedio: O(n log n)
 class Sort{
   public:
     void sortNameAscendantTodos(vector<Objeto*>&);
