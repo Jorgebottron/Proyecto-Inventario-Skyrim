@@ -35,7 +35,10 @@ La única salida del proyecto es cuando seleccionas la opción "Mostrar Inventar
 De momento el proyecto busca cumplir con las siguientes competencias:
 ### SICT0301: Evalúa los componentes
 #### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
-Contando que en sí la dificultad no viene tanto por el tipo de estructura de datos sino más bien porque función implementamos para ella, entonces el análisis de complejidad será en base a las funciones que usé para las estructuras de datos que implementé para mi proyecto.
+
+
+#### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
+ Contando que en sí la dificultad no viene tanto por el tipo de estructura de datos sino más bien porque función implementamos para ella, entonces el análisis de complejidad será en base a las funciones que usé para las estructuras de datos que implementé para mi proyecto.
   ##### Primera estructura de datos: variante del Intro sort
   - getFirst(): Para conseguir la información del primer dato de la lista.
     - Mejor caso: O(1)
@@ -49,7 +52,6 @@ Contando que en sí la dificultad no viene tanto por el tipo de estructura de da
     - Peor Caso: O(n)
   Pues en el mejor de los casos, el dato buscado es el primero en la lista. Ya en el peor de los casos tiene que reocrrer toda la lista para encontrar en dato deseado y en el promedio sería la mitad de la lista (O(n/2)), que igual se puede simplificar a O(n).
 
-#### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
  ##### Segunda estructura de datos: Árbol de Búsqueda Binaria
   - add(): Para agregar un valor al árbol binario, de modo que al añadirse también se ordene con respecto a los demás datos.
     - Mejor caso: O(1)
