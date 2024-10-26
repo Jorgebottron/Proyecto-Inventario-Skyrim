@@ -50,7 +50,7 @@ Contando que en sí la dificultad no viene tanto por el tipo de estructura de da
   Pues en el mejor de los casos, el dato buscado es el primero en la lista. Ya en el peor de los casos tiene que reocrrer toda la lista para encontrar en dato deseado y en el promedio sería la mitad de la lista (O(n/2)), que igual se puede simplificar a O(n).
 
 #### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
- ##### SSegunda estructura de datos: Árbol de Búsqueda Binaria
+ ##### Segunda estructura de datos: Árbol de Búsqueda Binaria
   - add(): Para agregar un valor al árbol binario, de modo que al añadirse también se ordene con respecto a los demás datos.
     - Mejor caso: O(1)
     - Caso promedio: O(log n)
