@@ -35,11 +35,19 @@ La única salida del proyecto es cuando seleccionas la opción "Mostrar Inventar
 De momento el proyecto busca cumplir con las siguientes competencias:
 ### SICT0301: Evalúa los componentes
 #### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
-  Tipo de sort: variante del Intro sort
-  - Mejor caso: O(n log n)
-  - Caso promedio: O(n log n)
-  - Peor Caso: O(n log n)
-  Tambièn puedes encontrar el anàlisis en el Main.cpp en la lìnea de còdigo 481.
+Contando que en sí la dificultad no viene tanto por el tipo de estructura de datos sino más bien porque función implementamos para ella, entonces el análisis de complejidad será en base a las funciones que usé para las estructuras de datos que implementé para mi proyecto.
+  ##### Primera estructura de datos: variante del Intro sort
+  - getFirst: 
+    - Mejor caso: O(1)
+    - Caso promedio: O(1)
+    - Peor Caso: O(1)
+  Pues sólo se ontienen el primer dato de la lista, de modo que sin importar el caso, siempre tomará ese primer dato sin tener que recorrer más de la lista, y si a lista estuviera vacía, entocnes s´´olo mandaría un mensaje indicando ese hecho.
+
+  - get: 
+    - Mejor caso: O(1)
+    - Caso promedio: O(n)
+    - Peor Caso: O(n)
+  Pues en el mejor de los casos, el dato buscado es el primero en la lista. Ya en el peor de los casos tiene que reocrrer toda la lista para encontrar en dato deseado y en el promedio sería la mitad de la lista (O(n/2)), que igual se puede simplificar a O(n).
 
 #### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
   Tipo de lista: Lista Doblemente Enlazada
