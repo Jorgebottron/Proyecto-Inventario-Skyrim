@@ -37,31 +37,55 @@ De momento el proyecto busca cumplir con las siguientes competencias:
 #### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
 Contando que en sí la dificultad no viene tanto por el tipo de estructura de datos sino más bien porque función implementamos para ella, entonces el análisis de complejidad será en base a las funciones que usé para las estructuras de datos que implementé para mi proyecto.
   ##### Primera estructura de datos: variante del Intro sort
-  - getFirst: 
+  - getFirst(): Para conseguir la información del primer dato de la lista.
     - Mejor caso: O(1)
     - Caso promedio: O(1)
     - Peor Caso: O(1)
   Pues sólo se ontienen el primer dato de la lista, de modo que sin importar el caso, siempre tomará ese primer dato sin tener que recorrer más de la lista, y si a lista estuviera vacía, entocnes s´´olo mandaría un mensaje indicando ese hecho.
 
-  - get: 
+  - get(): Para obtener un la información de un dato en una posición de una lista.
     - Mejor caso: O(1)
     - Caso promedio: O(n)
     - Peor Caso: O(n)
   Pues en el mejor de los casos, el dato buscado es el primero en la lista. Ya en el peor de los casos tiene que reocrrer toda la lista para encontrar en dato deseado y en el promedio sería la mitad de la lista (O(n/2)), que igual se puede simplificar a O(n).
 
 #### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
-  Tipo de lista: Lista Doblemente Enlazada
-  - Mejor caso: O(1)
-  - Caso promedio: O(n)
-  - Pero caso: O(n)
-  Tambièn puedes encontrar el anàlisis en el archivo "DataStructure.h" en la lìnea de còdigo 129.
- 
-  Tipo de àrbol: Àrbol de Bùsqueda Binaria
-  Tanto la funciòn de ordenamiento ascendente como la de ordenamiento descendente usando àrboles de bùsqueda binarios tienen la misma dificultad, que es la siguiente: 
-  - Mejor caso: O(n)
-  - Caso promedio: O(n)
-  - Peor caso: O(n)
-  Tambièn puedes encontrar el anàlisis en el Main.cpp en la lìnea de còdigo 548 y en el archivo "DataStructure.h" desde las lìneas de còdigo 384-414.
+ ##### SSegunda estructura de datos: Árbol de Búsqueda Binaria
+  - add(): Para agregar un valor al árbol binario, de modo que al añadirse también se ordene con respecto a los demás datos.
+    - Mejor caso: O(1)
+    - Caso promedio: O(log n)
+    - Pero caso: O(log n)
+  Pues, al agregar el dato, se reduce a la mitad el espacio de búsqueda para ver en qué posición colocar el nuevo dato. Debido a ello, en todos menos en el mejor de los casos la dificultad es de O(log n). La razón por la que el mejor de los casos tiene una dificultad O(1), es porque apenas entre no es necesario seguir revisando donde ponerlo, peus ya está en la posición donde debería.
+
+  - find(): Para encontrar un dato y consultar su información en un árbol binario.
+    - Mejor caso: O(1)
+    - Caso promedio: O(log n)
+    - Pero caso: O(log n)
+   Pues, al igual que en el add, en el mejor de los casos encontramos el dato que buscamos al inicio de la lista, y en los otros dos casos se reduce a la mitad el espacio de búsqueda para encontrar el dato deseado.
+
+  - Inorder(): Método de ordenamiento para árboles donde primero visitamos su rama izquierda, luego su nodo y luego la rama derecha.
+      - Mejor caso: O(n)
+      - Caso promedio: O(n)
+      - Pero caso: O(n)
+  Pues, al ser un método de ordenamiento, debe cursar por cada nodo y rama del árbol para ordenarlos. Por ello, sin importar de que caso hablemos, la complejidad sigue siendo la misma, donde sólo varía el tamaño de árbol.
+
+  - Preorder(): Método de ordenamiento para árboles donde primero visitamos el nodo, luego la rama izquierda y luego su rama derecha.
+      - Mejor caso: O(n)
+      - Caso promedio: O(n)
+      - Pero caso: O(n)
+  Pues, al ser un método de ordenamiento, debe cursar por cada nodo y rama del árbol para ordenarlos. Por ello, sin importar de que caso hablemos, la complejidad sigue siendo la misma, donde sólo varía el tamaño de árbol.
+
+  - Postorder(): Método de ordenamiento para árboles donde primero visitamos la rama izquierda, luego la rama derecha y por último el nodo.
+      - Mejor caso: O(n)
+      - Caso promedio: O(n)
+      - Pero caso: O(n)
+  Pues, al ser un método de ordenamiento, debe cursar por cada nodo y rama del árbol para ordenarlos. Por ello, sin importar de que caso hablemos, la complejidad sigue siendo la misma, donde sólo varía el tamaño de árbol.
+
+  - levelByLevel(): Método de ordenamiento para árboles donde ordenamos en base a los niveles del árbol, usando los nodos y a los sucesores del respctivo nodo superior a esa rama, pero ordenandolos según su nivel en el árbol binario.
+      - Mejor caso: O(n)
+      - Caso promedio: O(n)
+      - Pero caso: O(n)
+  Pues, al ser un método de ordenamiento, debe cursar por cada nodo y rama del árbol para ordenarlos. Por ello, sin importar de que caso hablemos, la complejidad sigue siendo la misma, donde sólo varía el tamaño de árbol.
 
 ### SICT0302: Toma decisiones 
 #### Selecciona un algoritmo de ordenamiento adecuado al problema y lo usa correctamente.
