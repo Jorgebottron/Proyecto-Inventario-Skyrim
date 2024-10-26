@@ -35,7 +35,11 @@ La única salida del proyecto es cuando seleccionas la opción "Mostrar Inventar
 De momento el proyecto busca cumplir con las siguientes competencias:
 ### SICT0301: Evalúa los componentes
 #### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
-
+La versión de Sort que utilizo para esta parte es una variante del Intro sort porporcionado por la librería <algorithm>. El introsory es un híbrido entre otros tres tipos de sort: quicksort, heapsort e Insertion sort. El truco de este tipo de Sort es que, dependiendo de la seituación, utiliza la metodología de un sort o de otro. Al principio, empieza como un quicksort, pero pasado cidrto límite de tamaño, pasa a trabajar como un heapsort, esto para evitar el peor caso de un quicksort que resulta ser de una complejidad muy elevada (O(n^2)).Igualmente, si la cantidad de elementos resulta ser menor al esperado, cambia a funcionar como un usertion sort. Así que, en pocas palabras, se adapta al tamaño de los elementos a ordenar para funcionar como un tipo de sort en específico, de modo que en ningún caso supere el nivel de complejidad de O(n log  n).
+ -Intro sort:
+   - Mejor caso: O(n log n)
+   - Caso promedio: O(n log n)
+   - Peor Caso: O(n log n)
 
 #### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
  Contando que en sí la dificultad no viene tanto por el tipo de estructura de datos sino más bien porque función implementamos para ella, entonces el análisis de complejidad será en base a las funciones que usé para las estructuras de datos que implementé para mi proyecto.
