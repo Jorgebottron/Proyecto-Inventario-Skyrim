@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <queue>
+#include <list>
 #include <string>
 #include "Armas.h"
 using namespace std;
@@ -32,11 +33,14 @@ private:
 public:
     DList();
     ~DList();
-
+    void addFirst(T);
+    void add(T);
     T getFirst() const;
     T get(int index) const;
+    int lenght();
     bool empty() const;
     void clear();
+    T buscarPorNombre(const string&) const;
 };
 
 // DListIterator Class
@@ -58,6 +62,9 @@ public:
     void operator=(T val);
 };
 
+
+
+
 // TreeNode Class
 template <class T>
 class TreeNode {
@@ -75,6 +82,9 @@ public:
     void postorder(stringstream& aux) const;
     void levelByLevel(stringstream& aux) const;
 };
+
+
+
 
 // BST Class
 template <class T>
@@ -117,6 +127,44 @@ template <class T>
 DList<T>::~DList() {
     clear();
 }
+template <class T>
+void DList<T>::addFirst(T val)  {
+    //Crear el nuevo nodo
+    DLink<T> * nuevo_nodo = new DLink<T>(val);
+    if(nuevo_nodo == NULL) {
+        throw string("OutOfMemory");
+    }
+    //La lista está vacía
+    if (empty()) {
+        head = nuevo_nodo;
+        tail = nuevo_nodo;
+    } else {
+        //La lista no está vacía
+        head->previous = nuevo_nodo;
+        nuevo_nodo->next = head;
+        head = nuevo_nodo;
+    }
+    size++;
+}
+
+template <class T>
+void DList<T>::add(T val)  {
+    //Crear el nuevo nodo
+    DLink<T> * nuevo_nodo = new DLink<T>(val);
+    if(nuevo_nodo == NULL) {
+        throw string("OutOfMemory");
+    }
+    if(empty()) {
+        head = nuevo_nodo;
+        tail = nuevo_nodo;
+    } else {
+        nuevo_nodo->previous = tail;
+        tail->next = nuevo_nodo;
+        tail = nuevo_nodo;
+    }
+    size++;
+}
+
 
 template <class T>
 T DList<T>::getFirst() const {
@@ -146,6 +194,11 @@ T DList<T>::get(int index) const {
 }
 
 template <class T>
+int DList<T>::lenght() {
+    return size;
+}
+
+template <class T>
 bool DList<T>::empty() const {
     return (size == 0 && head == NULL && tail == NULL);
 }
@@ -162,6 +215,19 @@ void DList<T>::clear() {
     tail = NULL;
     size = 0;
 }
+
+template <class T>
+T DList<T>::buscarPorNombre(const std::string& nombre) const {
+    DLink<T>* actual = head;
+    while (actual != nullptr) {
+        if (actual->value->getNombre() == nombre) {
+            return actual->value; // Retornamos el objeto si coincide el nombre
+        }
+        actual = actual->next;
+    }
+    return nullptr; // Retorna nullptr si no se encontró
+}
+
 
 // DListIterator
 template <class T>
@@ -216,6 +282,9 @@ void DListIterator<T>::operator=(T val) {
     }
     current->value = val;
 }
+
+
+
 
 // TreeNode
 template <class T>

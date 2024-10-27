@@ -1,4 +1,5 @@
 #include <iostream>
+#include <list>
 #include "Objeto.h"
 #include "Armas.h"
 #include "Atuendo.h"
@@ -545,6 +546,10 @@ int main(){
       }
         
   } else if(accion == "7") {
+    DList<Objeto*> DListInventario;
+    for (int i=0; i<inventario.size(); i++){
+      DListInventario.add(inventario[i]);
+    }
   //Implemento listas doblemente enlazadas para usarlas en la búsqueda de objetos.
   //Esta implementación de búsqueda tiene la siguiente dificultad:
   //Mejor caso: O(1)
@@ -556,10 +561,10 @@ int main(){
     // Variable para verificar si el objeto fue encontrado
     bool encontrado = false;
     // Buscamos en el inventario usando el método get()
-    for (int i = 0; i < inventario.size(); i++) {
-      if (inventario[i]->getNombre() == nombreBuscar) {
+    for (int i = 0; i < DListInventario.lenght(); i++) {
+      if (DListInventario.get(i)->getNombre() == nombreBuscar) {
         cout << "Objeto encontrado!: " << endl;
-        cout << inventario[i]->printInformacion() << endl; // Mostrar información del objeto
+        cout << DListInventario.get(i)->printInformacion() << endl; // Mostrar información del objeto
         cout << "Ubicación en el inventario: " << (i + 1) << endl; // Mostrar la posición (i + 1 para empezar desde 1)
         encontrado = true;
         break; // Detenemos la búsqueda después de encontrar el objeto
