@@ -43,7 +43,7 @@ La versión de Sort que utilizo para esta parte es una variante del Intro sort p
 
 #### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
  Contando que en sí la dificultad no viene tanto por el tipo de estructura de datos sino más bien porque función implementamos para ella, entonces el análisis de complejidad será en base a las funciones que usé para las estructuras de datos que implementé para mi proyecto.
-  ##### Primera estructura de datos: variante del Intro sort
+  ##### Primera estructura de datos: Listas Doblemente Ligadas
   - getFirst(): Para conseguir la información del primer dato de la lista.
     - Mejor caso: O(1)
     - Caso promedio: O(1)
@@ -126,16 +126,17 @@ En este caso, se tiene que recorrer todo el vector "Inventario" para encontrar e
 En este caso, se tiene que recorrer todo el vector "Inventario" para encontrar el objeto al que se quiere quitar de favorito. Por ello el mejor de los casos tiene una complejidad de O(1), porque entonces el objeto se encuentra al inicio del vector. Pero, si no es el caso, entonces se tiene que recorrer parte del vector o incluso el vector completo para encontrar el objeto que se quiere quitar de favorito.
 
 ##### Ordenar Inventario
+######  la función Intro Sort
    - Mejor caso: O(n log n)
    - Caso promedio: O(n log n)
    - Pero caso: O(n log n)
 Como mencioné en el análisis de complejidad de mi algoritmo de ordenamiento, al ser una variante del Intro sort, este es un Sort híbrido que se adapta para nunca superar la complejidad de O(n log n). (Si quiere ver más información al respecto, visite el punto anterior de: "Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.". Ahí viene toda la información más detallada del sort usado para esta función.
 
+###### Para la función de árbol de búsqueda binaria
+Igualmente, hay una implementación de un árbol de búsqueda binaria, el cual, como ya vimos, no se puede analizar en sí como estructura de datos, sino más bien, se tiene que analizar la complejidad sus funciones, tema que abarco en el punto: "Segunda estructura de datos: Árbol de Búsqueda Binaria" (por eso no lo pongo otra vez, porque esta descripción ya viene más arriba en este documento).
+
 ##### Buscar Objeto
-   - Mejor caso: O(n)
-   - Caso promedio: O(n)
-   - Pero caso: O(n)
-Pues, 
+Al igual que en el punto anterior, esta función trabaja con una lista doblemente ligada, la cual, al igual que con los Árboles de búsqueda binaria, tiene que ser analizada en base a las funciones que la componen, tema que ya abarco en el punto: "Primera estructura de datos: listas doblemente ligadas".
 
 ### SICT0302: Toma decisiones 
 #### Selecciona un algoritmo de ordenamiento adecuado al problema y lo usa correctamente.
