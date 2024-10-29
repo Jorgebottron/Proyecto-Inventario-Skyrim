@@ -5,7 +5,7 @@ Un programa inspirado en el inventario del famoso juego The Elder Scrolls V: Sky
 El programa mostrará un menú donde el usuario podrá interactuar para seleccionar qué acción desea realizar, teniendo siete opciones:
 1. Agregar objeto
 2. Eliminar objeto
-3. Ordenar inventario
+3. Mostrar inventario
 4. Agregar favorito
 5. Eliminar favorito
 6. Ordenar inventario
@@ -93,6 +93,50 @@ La versión de Sort que utilizo para esta parte es una variante del Intro sort p
       - Pero caso: O(n)
   Pues, al ser un método de ordenamiento, debe cursar por cada nodo y rama del árbol para ordenarlos. Por ello, sin importar de que caso hablemos, la complejidad sigue siendo la misma, donde sólo varía el tamaño de árbol.
 
+#### Hace un análisis de complejidad correcto y completo para todos los demás componentes del programa y determina la complejidad final del programa.
+Para este apartado es necesario que especifique que este programa trabaja con diferentes aplicaiones, de modo que cada una hace una labor diferente y, por ende, tiende una complejidad distinta a las demás. Por lo que, para hacer este análisis de complejidad final del programa, es necesario dividir ql programa en los distintos componentes y funciones que lo conforman:
+ ##### Agregar Objeto
+   - Mejor caso: O(1)
+   - Caso promedio: O(1)
+   - Pero caso: O(1)
+Pues al final sólo está agregando un objeto al final de un vector, por lo que no necesita hacer ningún recorrido o hacer varias operaciones múltiples veces, sino tan sólo hacer una única operación que sería esa de agregar el nuevo objeto al final de su respectivo vector y en el vector de "Inventario".
+ 
+ ##### Eliminar Objeto
+   - Mejor caso: O(1)
+   - Caso promedio: O(n)
+   - Pero caso: O(n)
+Pues, en este caso, tiene que recorrer los elementos de los vectores para encontrar el objeto que se quiere eliminar. Por ello, sólo en el mejor caso la complejidad es O(1), porque entonces el objeto se encuentra al inicio del vector, y en el resto de los casos (el peor y el promedio) tiene que recorrer parte del vector o incluso el vector completo para encontrar el objeto a eliminar.
+
+##### Mostrar Inventario
+   - Mejor caso: O(n)
+   - Caso promedio: O(n)
+   - Pero caso: O(n)
+Pues tiene que recorrer todo el vector de la categoría corrrespondiente a la que el usuario quiere ver, de modo que, sin importar el caso (mejor, peor o promedio), la complejidad es siempre la misma pues siempre se va a tener que recorrer todo el vector para imprimir la información de este.
+
+##### Agregar Favorito
+   - Mejor caso: O(1)
+   - Caso promedio: O(n)
+   - Pero caso: O(n)
+En este caso, se tiene que recorrer todo el vector "Inventario" para encontrar el objeto al que se quiere hacer favorito. Por ello el mejor de los casos tiene una complejidad de O(1), porque entonces el objeto se encuentra al inicio del vector. Pero, si no es el caso, entonces se tiene que recorrer parte del vector o incluso el vector completo para encontrar el objeto que se quiere volver favorito.
+
+##### Quitar Favorito
+   - Mejor caso: O(1)
+   - Caso promedio: O(n)
+   - Pero caso: O(n)
+En este caso, se tiene que recorrer todo el vector "Inventario" para encontrar el objeto al que se quiere quitar de favorito. Por ello el mejor de los casos tiene una complejidad de O(1), porque entonces el objeto se encuentra al inicio del vector. Pero, si no es el caso, entonces se tiene que recorrer parte del vector o incluso el vector completo para encontrar el objeto que se quiere quitar de favorito.
+
+##### Ordenar Inventario
+   - Mejor caso: O(n)
+   - Caso promedio: O(n)
+   - Pero caso: O(n)
+Como mencioné en el análisis de complejidad de mi algoritmo de ordenamiento, al ser una variante del Intro sort, este es un
+
+##### Buscar Objeto
+   - Mejor caso: O(n)
+   - Caso promedio: O(n)
+   - Pero caso: O(n)
+Pues, 
+
 ### SICT0302: Toma decisiones 
 #### Selecciona un algoritmo de ordenamiento adecuado al problema y lo usa correctamente.
 Para el desarrollo de mi proyecto, decidí trabajar con la función sort que viene en la librería <algorithm> de C++. La razón de mi elección es porque, cpomo mencioné anteriormente, es un híbrido de tres sorts diferentes, por lo que escogí trabajar con un sort adaptativo a la cantidad de elementos, de modo que la complejidad temporal no cambia y se mantiene constante sin importar el caso. Justamente por eso decidí trabajar con este sort. Aparte de esto, este sort me permitió ordenar de diferentes formas una gran variedad de objetos según caracterísitcas como el nombre, el daño, defensa o valor de un objeto, de modo que me permite trabajar con características únicas de ciertos objetos y trabajar también con palabras, no sólo con números, lo que resultó ser también muy útil para la elaboración de mi proyecto.
@@ -107,3 +151,4 @@ Considero que este punto se cumple porque esto se impelementa sobre todo con la 
 Esto tambièn considero que se cumple, pues, sobre todo con el ordenamiento de àrboles binarios, se agregan los datos de las armas en una nueva lista que agrega esta informaciòn para que se pueda hacer el ordenamiento segùn los diferentes tipos de ordenamiento.
 Algo parecido pasa con la funciòn de bùsqueda, pues en esta se carga el nombre del objeto que desea buscar, por lo que esta funciòn debe de poder recibir y leer el nombre y poder compararlo con los atributos Normbre de los demàs objetos para ver si encuentra el objeto para devolver la infroamciòn y posiciòn en el inventario de este, o, en caso de no encontrarlo, informarle al usuario que no encuentra ese objeto.
 Por lo que en ambas funciones deben de poder recibir, cargar y leer informaciòn apra que puedan realizar sus respectivas funciones, por eso considero que este punto tambièn se cumple.
+#### Implementa mecanismos de escritura de archivos para guardar los datos de las estructuras de manera correcta.
