@@ -3,3 +3,5 @@ g++ main.cpp DataStructures.h Sort.cpp Sort.h Objeto.cpp Objeto.h Armas.cpp Arma
 
 //Para correr el programa luego de seleccionar los archivos con los que va a trabajar el programa:
 ./Inventario
+
+//O puede usar la siguiente línea de código: g++ -std = c++ 13.2.0 main.cpp
