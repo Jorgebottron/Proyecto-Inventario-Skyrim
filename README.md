@@ -126,10 +126,10 @@ En este caso, se tiene que recorrer todo el vector "Inventario" para encontrar e
 En este caso, se tiene que recorrer todo el vector "Inventario" para encontrar el objeto al que se quiere quitar de favorito. Por ello el mejor de los casos tiene una complejidad de O(1), porque entonces el objeto se encuentra al inicio del vector. Pero, si no es el caso, entonces se tiene que recorrer parte del vector o incluso el vector completo para encontrar el objeto que se quiere quitar de favorito.
 
 ##### Ordenar Inventario
-   - Mejor caso: O(n)
-   - Caso promedio: O(n)
-   - Pero caso: O(n)
-Como mencioné en el análisis de complejidad de mi algoritmo de ordenamiento, al ser una variante del Intro sort, este es un
+   - Mejor caso: O(n log n)
+   - Caso promedio: O(n log n)
+   - Pero caso: O(n log n)
+Como mencioné en el análisis de complejidad de mi algoritmo de ordenamiento, al ser una variante del Intro sort, este es un Sort híbrido que se adapta para nunca superar la complejidad de O(n log n). (Si quiere ver más información al respecto, visite el punto anterior de: "Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.". Ahí viene toda la información más detallada del sort usado para esta función.
 
 ##### Buscar Objeto
    - Mejor caso: O(n)
