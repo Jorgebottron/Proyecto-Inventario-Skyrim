@@ -138,6 +138,8 @@ Igualmente, hay una implementación de un árbol de búsqueda binaria, el cual, 
 ##### Buscar Objeto
 Al igual que en el punto anterior, esta función trabaja con una lista doblemente ligada, la cual, al igual que con los Árboles de búsqueda binaria, tiene que ser analizada en base a las funciones que la componen, tema que ya abarco en el punto: "Primera estructura de datos: listas doblemente ligadas".
 
+Así que, esa sería la complejidad del programa según la función con la que el usuario esté trabajando.
+
 ### SICT0302: Toma decisiones 
 #### Selecciona un algoritmo de ordenamiento adecuado al problema y lo usa correctamente.
 Para el desarrollo de mi proyecto, decidí trabajar con la función sort que viene en la librería <algorithm> de C++. La razón de mi elección es porque, cpomo mencioné anteriormente, es un híbrido de tres sorts diferentes, por lo que escogí trabajar con un sort adaptativo a la cantidad de elementos, de modo que la complejidad temporal no cambia y se mantiene constante sin importar el caso. Justamente por eso decidí trabajar con este sort. Aparte de esto, este sort me permitió ordenar de diferentes formas una gran variedad de objetos según caracterísitcas como el nombre, el daño, defensa o valor de un objeto, de modo que me permite trabajar con características únicas de ciertos objetos y trabajar también con palabras, no sólo con números, lo que resultó ser también muy útil para la elaboración de mi proyecto.
