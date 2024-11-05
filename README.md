@@ -10,6 +10,7 @@ El programa mostrará un menú donde el usuario podrá interactuar para seleccio
 5. Eliminar favorito
 6. Ordenar inventario
 7. Buscar objeto
+8. Crear Archivo de Texto
 
 ## Descripción del Avance 1
 En este primer avance incluyo todas las clases con las que voy a trabajar, junto con la clase Sort, que es la más importante en este avance, ya que fue solicitada específicamente. Aparte de eso, en el main hay un menú donde los usuarios pueden interactuar para decidir qué acción quieren que realice el programa.
@@ -19,6 +20,10 @@ En este segundo avance, incluyo la aplicaciòn de estructuras de datos a mi prog
 1. Lista Doblemente Enlazada: Que se usa para la nueva funciòn de bùsqueda, que en el menù serìa la funciòn 7. Busca en la lista del inventario el nombre del objeto que estàs buscando, y, si lo encuentra, devuelve la infromaciòn del objeto junto con su ubicaciòn en el inventario (que serìa su ubicaciòn en la lista de Inventario".
 2. Àrboles de Bùsqueda Binaria: Donde, a pesar de que su nobmre es Àrbol de BÙSQUEDA, realmente lo uso para añadir una nueva funciòn a la funciòn 6 de ordenar los datos, donde viene la nueva opciòn de ordenarlos en ordenes de tipo Postorder, Inorder, Preorder y Level By Level (aplicable sòlo apra la forma ascendente, pues en la descendente sòlo agreguè un sòlo ordenamiento).
 Aparte de añadir todo esto esto, no mofico mucho el main màs que sòlo para agregar estas nuevas funciones, y el resto de los archivos se mantienen igual.
+
+## Descripción del Avance 3
+En este tercer avance genero un análisis detallado actualizado de cada una de las fucniones del programa (pues no puedo sacarle una complejidad definitiva para todo el programa, sino que esta debe venir según los componentes del proyecto). 
+Y, aparte, implemento una nueva función. La función 8 sirve para crear archivos de texto según la infroamción almacenada en el Inventario del usuario, de modo que, cuando seleccione esta opción, el programa le generará un archivo de texto dentro de sus archivos del poryecto (por ejemplo, si trabaja en Replit, el archivo de texto aparecerá junto con el resto de los archivo .h y .cpp.
 
 ## Intrucciones para compilar el programa
 Lo primero es descargarlo e importarlo a un porgrama que pueda correr código de C++. Luego, importas todas las clases y corres el programa. Al principio, el porgrama te pedirá que ingreses cualqueir número para inicializar el programa, pero puedes ingresar cualqueir caractér y no te causará problemas. Luego de eso se imprimirá el menú, donde seleccionarás que acción queires que el programa realic conforme al número de la acción. Por ejemplo, si queires usar la opción "Agregar Objeto" escribe 1, para "Ordenar inventario" escribe 3, y así con las demás opciones. Cada opción puede tener opciones extra, donde luego de la pregunta que se te realice para darte contexto de que acciones puedes hacer, se te mostrará una lista de las palabras que debes usar como comandos. Por ejemplo, si seleccionaste "Mostrar Inventario" y te pregunta el porgrama "¿Qué inventario quieres mostrar? (Todos, Armas, Atuendo...)" y queires que se muestren sólo las armas, escribe "Armas" (tal y como viene escrito con la primera letra en mayúscula siempre) y dale clic en enter. Y haz lo mismo con las demás opciones si es que vienen varias acciones que puedes realizar. Cuando quieras deterner el programa, tan sólo escribe n minúscula, si quieres hacer otra acción luego de termianr una, escribe y en minúscula para dejarle claro al programa que quieres hacer algo más.
@@ -126,7 +131,7 @@ En este caso, se tiene que recorrer todo el vector "Inventario" para encontrar e
 En este caso, se tiene que recorrer todo el vector "Inventario" para encontrar el objeto al que se quiere quitar de favorito. Por ello el mejor de los casos tiene una complejidad de O(1), porque entonces el objeto se encuentra al inicio del vector. Pero, si no es el caso, entonces se tiene que recorrer parte del vector o incluso el vector completo para encontrar el objeto que se quiere quitar de favorito.
 
 ##### Ordenar Inventario
-######  la función Intro Sort
+###### Función Intro Sort
    - Mejor caso: O(n log n)
    - Caso promedio: O(n log n)
    - Pero caso: O(n log n)
@@ -137,6 +142,12 @@ Igualmente, hay una implementación de un árbol de búsqueda binaria, el cual, 
 
 ##### Buscar Objeto
 Al igual que en el punto anterior, esta función trabaja con una lista doblemente ligada, la cual, al igual que con los Árboles de búsqueda binaria, tiene que ser analizada en base a las funciones que la componen, tema que ya abarco en el punto: "Primera estructura de datos: listas doblemente ligadas".
+
+##### Crear Archivo de Texto
+   - Mejor caso: O(1)
+   - Caso promedio: O(n)
+   - Pero caso: O(n)
+Pues, al ser una función que recorre todo el vector de Inventario, si este está vacío o tiene un único valor, su complejidad sería de O(1) porque sólo tendría que recorrer un elemento de la lista o devolver un mensaje que indique que el vector está vacío. Y es O(n) tanto para el peor caso como para el caso promedio porque recorre todos los demás elementos del vector para imprimirlos en un archivo de texto.
 
 Así que, esa sería la complejidad del programa según la función con la que el usuario esté trabajando.
 
@@ -149,9 +160,12 @@ Aparte, he incorporado una función que trabaja con una lista doblemente enlazad
 
 ### SICT0303: Implementa acciones científicas
 #### Implementa mecanismos para consultar información de las estructras correctos.
-Considero que este punto se cumple porque esto se impelementa sobre todo con la funciòn 7 de buscar un objeto en el inventario, pues, al encontrar el objeto, consulta la informaciòn de este como su nombre, valor, si es favorito o no y cualquier otro dato que incluya el objeto. Lo mismo con el ordenamiento con àrboles binario, pues consulta informaciòn en este caso de los objetos tipo Armas para poder ordenarlos. 
+Considero que este punto se cumple porque esto se impelementa sobre todo con la funciòn 7 de buscar un objeto en el inventario, pues, al encontrar el objeto, consulta la informaciòn de este como su nombre, valor, si es favorito o no y cualquier otro dato que incluya el objeto. Lo mismo con el ordenamiento con àrboles binario, pues consulta información en este caso de los objetos tipo Armas para poder ordenarlos. 
+Aparte, con la función 8 de crear un archivo de texto, el usuario puede no sólo consultar la información, sino también descargarla en su ordenador para conservarla. Así que por eso creo que este punto se cumple correctamente, debido a estas dos funciones que le permiten al usuario conocer la información de los objetos que hay en su inventario.
 #### Implementa mecanismos de lectura de archivos para cargar datos a las estructuras de manera correcta.
-Esto tambièn considero que se cumple, pues, sobre todo con el ordenamiento de àrboles binarios, se agregan los datos de las armas en una nueva lista que agrega esta informaciòn para que se pueda hacer el ordenamiento segùn los diferentes tipos de ordenamiento.
-Algo parecido pasa con la funciòn de bùsqueda, pues en esta se carga el nombre del objeto que desea buscar, por lo que esta funciòn debe de poder recibir y leer el nombre y poder compararlo con los atributos Normbre de los demàs objetos para ver si encuentra el objeto para devolver la infroamciòn y posiciòn en el inventario de este, o, en caso de no encontrarlo, informarle al usuario que no encuentra ese objeto.
-Por lo que en ambas funciones deben de poder recibir, cargar y leer informaciòn apra que puedan realizar sus respectivas funciones, por eso considero que este punto tambièn se cumple.
+Esto también considero que se cumple, pues, sobre todo con el ordenamiento de árboles binarios, se agregan los datos de las armas en una nueva lista que agrega esta información para que se pueda hacer el ordenamiento segùn los diferentes tipos de ordenamiento.
+Algo parecido pasa con la función de búsqueda, pues en esta se carga el nombre del objeto que desea buscar, por lo que esta funciòn debe de poder recibir y leer el nombre y poder compararlo con los atributos Normbre de los demàs objetos para ver si encuentra el objeto para devolver la infroamciòn y posiciòn en el inventario de este, o, en caso de no encontrarlo, informarle al usuario que no encuentra ese objeto.
+Por lo que ambas funciones pueden recibir, cargar y leer informaciòn para que puedan realizar sus respectivas funciones, por eso considero que este punto también se cumple.
 #### Implementa mecanismos de escritura de archivos para guardar los datos de las estructuras de manera correcta.
+Este punto también se cumple, pues con la implementación de la función 8, el usuario puede crear o sobreescribir un archivo de texto que contenga la información del inventario, de modo que puede usar esa información de nuevo y conservarla a pesar de que el programa termine y toda la información dentro de este se pierda. Aparte, esto es comprobable con el nuevo archivo de "inventario.txt" que demuestra como es que se almacena la información del rpograma, de modo que imrpime la información al igual que como lo hace en el programa principal.
+Así que, en conclusión, debido a la función 8 (usando los argumentos que ya mencioné anteriormente), considero que este punto también se cumple.
