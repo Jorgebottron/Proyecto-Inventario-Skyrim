@@ -1,4 +1,5 @@
 #include <iostream>
+#include <list>
 #include "Objeto.h"
 #include "Armas.h"
 #include "Atuendo.h"
@@ -10,13 +11,17 @@
 #include "Varios.h"
 #include "Sort.h"
 #include "DataStructures.h"
+//Donde f es de file/archivo, donde esta librería nos va a ayudar para la creación, lectura y escritura de archivos
+#include <fstream>
+//Librería para obtener la dirección de un archivo
+#include <filesystem>
+#include <stdlib.h>
 
 using namespace std;
 
 int main(){
   //Creo el vector principal qeu contendrá todos los objetos del usuario
   vector <Objeto*> inventario;
-  
   //Defino objetos default que tendrá el usuario
   //Defino las armas y un vector para las armas
   Armas Arma1("Espada_de_Hierro", 60, 10, 1, false, 30);
@@ -128,6 +133,7 @@ int main(){
     cout << "5. Quitar Favorito" << endl;
     cout << "6. Ordenar Inventario" << endl;
     cout << "7. Buscar Objeto" << endl;
+    cout << "8. Crear Archivo de Texto" << endl;
     cin >> accion;
 
     //Se genera el código de la acción 1: agregar un objeto
@@ -545,6 +551,10 @@ int main(){
       }
         
   } else if(accion == "7") {
+    DList<Objeto*> DListInventario;
+    for (int i=0; i<inventario.size(); i++){
+      DListInventario.add(inventario[i]);
+    }
   //Implemento listas doblemente enlazadas para usarlas en la búsqueda de objetos.
   //Esta implementación de búsqueda tiene la siguiente dificultad:
   //Mejor caso: O(1)
@@ -556,10 +566,10 @@ int main(){
     // Variable para verificar si el objeto fue encontrado
     bool encontrado = false;
     // Buscamos en el inventario usando el método get()
-    for (int i = 0; i < inventario.size(); i++) {
-      if (inventario[i]->getNombre() == nombreBuscar) {
+    for (int i = 0; i < DListInventario.lenght(); i++) {
+      if (DListInventario.get(i)->getNombre() == nombreBuscar) {
         cout << "Objeto encontrado!: " << endl;
-        cout << inventario[i]->printInformacion() << endl; // Mostrar información del objeto
+        cout << DListInventario.get(i)->printInformacion() << endl; // Mostrar información del objeto
         cout << "Ubicación en el inventario: " << (i + 1) << endl; // Mostrar la posición (i + 1 para empezar desde 1)
         encontrado = true;
         break; // Detenemos la búsqueda después de encontrar el objeto
@@ -568,11 +578,38 @@ int main(){
     if (!encontrado) {
         cout << "El objeto no fue encontrado en el inventario." << endl;
     }
-  }
+  } else if (accion == "8"){
+    // Crear y escribir en un archivo de texto la información de los objetos en el inventario
+      // Para mostrarle al usuario la ruta completa donde guarda su archivo
+      /* 
+      En resúmen, no genera una liga de la computadora actual,
+      sino que regresa una ruta en línea. Pero si tiene un 
+      compilador de c++ (como Replit), se le debería aparecer 
+      el .txt de nombre inventario entre los archivos del proyecto
+      */
+      string ruta = filesystem::current_path().string() + "/inventario.txt"; 
+      ofstream archivo("inventario.txt");
+      if (archivo.fail()) {
+        cout << "No se pudo crear/abrir el archivo" << endl;
+        exit(1);;
+      }
+      // Escribe los nombres de los objetos en el archivo
+      for (int i=0; i < inventario.size(); i++) {
+        //Para imprimir la información de todos los objetos del inventario
+        archivo << inventario[i]->printInformacion() << endl;
+      }
+      archivo.close();
+      cout << "Inventario: " << endl;
+      cout << "El inventario ha sido guardado en la ruta: " << ruta << "'" << endl; // Muestra la ruta al usuario
+
+    //Para importar información de un archivo de texto (.txt) a los vectores del programa
+  } 
     //Para ver si el usuario quiere realizar alguna otra acción
     cout << "¿Deseas hacer algo más? (y/n)\n" << endl;
     cin >> accion;
   }
+  
   //Para terminar el programa
   cout << "Saliendo del inventario..." << endl;
+  return 0;
 }

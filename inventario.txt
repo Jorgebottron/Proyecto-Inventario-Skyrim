@@ -1,0 +1,38 @@
+
+Nombre: Espada_de_Hierro, Valor: 60.000000, Peso: 10.000000, Cantidad: 1, Daño: 30, Favorito: No
+
+Nombre: Maza_de_Ébano, Valor: 350.000000, Peso: 35.000000, Cantidad: 1, Daño: 70, Favorito: Si
+
+Nombre: Arco, Valor: 50.000000, Peso: 12.000000, Cantidad: 1, Daño: 20, Favorito: No
+
+Nombre: Flechas_de_Hierro, Valor: 40.000000, Peso: 8.000000, Cantidad: 30, Daño: 5, Favorito: No
+
+Nombre: Armadura_de_Hierro, Valor: 150.000000, Peso: 22.000000, Cantidad: 1, Protección: 25, Favorito: No
+
+Nombre: Botas_de_Hierro, Valor: 65.000000, Peso: 10.000000, Cantidad: 1, Protección: 10, Favorito: No
+
+Nombre: Guanteletes_de_Hierro, Valor: 70.000000, Peso: 15.000000, Cantidad: 1, Protección: 15, Favorito: No
+
+Nombre: Yelmo_de_Hierro, Valor: 45.000000, Peso: 10.000000, Cantidad: 1, Protección: 12, Favorito: No
+
+Nombre: Escudo_de_Hierro, Valor: 100.000000, Peso: 20.000000, Cantidad: 1, Protección: 50, Favorito: No
+
+Nombre: Poción_de_Curación_Pequeña, Valor: 17.000000, Peso: 0.100000, Cantidad: 1, Favorito: No
+
+Nombre: Poción_de_Curación_Grande, Valor: 25.000000, Peso: 0.500000, Cantidad: 1, Favorito: No
+
+Nombre: Caramelo_de_miel_de_nuez, Valor: 10.000000, Peso: 2.000000, Cantidad: 3, Favorito: No
+
+Nombre: Aguamiel, Valor: 5.000000, Peso: 0.500000, Cantidad: 5, Favorito: No
+
+Nombre: Sales_de_fuego, Valor: 20.000000, Peso: 0.500000, Cantidad: 4, Favorito: No
+
+Nombre: Sales_de_escarcha, Valor: 25.000000, Peso: 0.500000, Cantidad: 3, Favorito: No
+
+Nombre: El_señor_de_los_anillos, Valor: 275.000000, Peso: 0.100000, Cantidad: 1, Favorito: No
+
+Nombre: Llave_de_Calabozo, Valor: 0.000000, Peso: 0.100000, Cantidad: 1, Favorito: No
+
+Nombre: Amatista, Valor: 160.000000, Peso: 0.100000, Cantidad: 1, Favorito: No
+
+Nombre: Huesos_de_Dragón, Valor: 30.000000, Peso: 550.000000, Cantidad: 3, Favorito: No
