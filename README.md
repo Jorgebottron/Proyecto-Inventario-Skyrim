@@ -43,7 +43,7 @@ La entrada sólo requiere al principio cualqueir número, luego cuando se despli
 ## Salidas del Proyecto
 La única salida del proyecto es cuando seleccionas la opción "Mostrar Inventario" o "Buscar objeto", pues en el resto de las opciones no regresa nada y sólo se hacen modificaciones a los vectores o a los objetos dentro de estos. Así que, dependiendo de que inventario quieras que se te muestre, entonces esa será la única salida. Esto es así pues de hecho la opción de mostrar inventario sirve más que nada para que, luego de que el usuario alla ejecutado cualquier otra opción, pueda ver sus cambios directamente en el vector correspondiente a ese inventario; y la opciòn de buscar objeto tambièn sirve para cuando el usuario quiera comrpobar si funciones como añadir o quitar objetos realmente funcionaron.
 
-## Desarrollode Competencias
+## Desarrollo de Competencias
 De momento el proyecto busca cumplir con las siguientes competencias:
 ### SICT0301: Evalúa los componentes
 #### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
