@@ -30,6 +30,13 @@ Lo primero es descargarlo e importarlo a un porgrama que pueda correr código de
 
 Aparte, si llegara a haber cualquier problema a la hora de correr el programa, puedes usar el siguiente link que te lleva a una pàgina de Replit donde tienes disponible todo el programa listo sòlo apra correrlo: https://replit.com/@JorgeOyoqui/Proyecto-Semestre-3
 
+## Comandos para compilar el programa
+### g++ para compilar el programa
+g++ main.cpp DataStructures.h Sort.cpp Sort.h Objeto.cpp Objeto.h Armas.cpp Armas.h Atuendo.cpp Atuendo.h Comida.cpp Comida.h Ingredientes.cpp Ingredientes.h Libros.cpp Libros.h Llaves.cpp Llaves.h Pociones.cpp Pociones.h Varios.cpp Varios.h -o Inventario
+
+### Para correr el programa
+./Inventario
+
 ## Descripción de las entradas del proyecto
 La entrada sólo requiere al principio cualqueir número, luego cuando se despliegue el menú sólo ocupas escribir un número para seleccionar la instrucción, luego, dependiendo de la acción seleccionada, debes ingresar la información que te pide el programa hasta que termine de realizar la acción, luego te preguntará si queires realizar otra acción, de nuevo, responde con respecto a las opciones disponibles. Sigue este proceso hasta que quieras dejar de usar el programa.
 
@@ -149,7 +156,11 @@ Al igual que en el punto anterior, esta función trabaja con una lista doblement
    - Pero caso: O(n)
 Pues, al ser una función que recorre todo el vector de Inventario, si este está vacío o tiene un único valor, su complejidad sería de O(1) porque sólo tendría que recorrer un elemento de la lista o devolver un mensaje que indique que el vector está vacío. Y es O(n) tanto para el peor caso como para el caso promedio porque recorre todos los demás elementos del vector para imprimirlos en un archivo de texto.
 
-Así que, esa sería la complejidad del programa según la función con la que el usuario esté trabajando.
+##### Dificultad Final del Programa
+Así que, para conseguir la dificultad final de mi programa, voy a definir que la dificultad de mi programa sea la de aquella función cuya dificultad es la más grande, donde esa función cuya dificultad es la mayor de todas es la del Intro Sort, teniendo una dificultad constante de O(n log n). Por ende, la dificultad final e mi programa es:
+   - Mejor caso: O(n log n)
+   - Caso promedio: O(n log n)
+   - Peor Caso: O(n log n)
 
 ### SICT0302: Toma decisiones 
 #### Selecciona un algoritmo de ordenamiento adecuado al problema y lo usa correctamente.
