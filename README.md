@@ -1,5 +1,5 @@
 # Proyecto: Inventario de Skyrim
-Un programa inspirado en el inventario del famoso juego The Elder Scrolls V: Skyrim, donde intento recrear el inventario utilizando técnicas como código orientado a objetos y aplicar varios tipos de funciones que incluyen funciones de tipo Sort o de Estructuras de Datos por ejemplo. Donde el usuario podrá revisar el inventario según las diferentes categorías de objetos, guardar y eliminar objetos, agregar y quitar favoritos y ordenar el inventario según su conveniencia.
+Un programa inspirado en el inventario del famoso juego The Elder Scrolls V: Skyrim, donde intento recrear el inventario utilizando técnicas como código orientado a objetos y aplicar varios tipos de funciones que incluyen funciones de tipo Sort o de Estructuras de Datos por ejemplo. Donde el usuario podrá revisar el inventario según las diferentes categorías de objetos, guardar y eliminar objetos, agregar y quitar favoritos, ordenar el inventario según su conveniencia, buscar un objeto en específico y crear o recibir archivos de texto para guardar o importar objetos en el inventario.
 
 # El programa
 El programa mostrará un menú donde el usuario podrá interactuar para seleccionar qué acción desea realizar, teniendo siete opciones:
@@ -11,6 +11,7 @@ El programa mostrará un menú donde el usuario podrá interactuar para seleccio
 6. Ordenar inventario
 7. Buscar objeto
 8. Crear Archivo de Texto
+9. Importar Archivo de Texto
 
 ## Descripción del Avance 1
 En este primer avance incluyo todas las clases con las que voy a trabajar, junto con la clase Sort, que es la más importante en este avance, ya que fue solicitada específicamente. Aparte de eso, en el main hay un menú donde los usuarios pueden interactuar para decidir qué acción quieren que realice el programa.
@@ -23,25 +24,38 @@ Aparte de añadir todo esto esto, no mofico mucho el main màs que sòlo para ag
 
 ## Descripción del Avance 3
 En este tercer avance genero un análisis detallado actualizado de cada una de las fucniones del programa (pues no puedo sacarle una complejidad definitiva para todo el programa, sino que esta debe venir según los componentes del proyecto). 
-Y, aparte, implemento una nueva función. La función 8 sirve para crear archivos de texto según la infroamción almacenada en el Inventario del usuario, de modo que, cuando seleccione esta opción, el programa le generará un archivo de texto dentro de sus archivos del poryecto (por ejemplo, si trabaja en Replit, el archivo de texto aparecerá junto con el resto de los archivo .h y .cpp.
+Aparte, implemento dos nuevas funciones: 
+1. La función 8 sirve para crear archivos de texto según la infroamción almacenada en el Inventario del usuario, de modo que, cuando seleccione esta opción, el programa le generará un archivo de texto dentro de sus archivos del poryecto (por ejemplo, si trabaja en Replit, el archivo de texto aparecerá junto con el resto de los archivo .h y .cpp.
+2. La función 9 srive para importar archivos de texto donde se use la infromación dentro de este para añadir nuevos objetos al vector de inventario y, según cual sea el tipo del objeto, se añadirá también al vector correspondiente de su tipo. Algo importante a tomar en cuenta es el formato de la información dentro del .txt para que se importen correctamente los datos, de modo que se debe de escribir de la sigueinte forma (donde se sparan los datos por medio de un espacio):
+  1. Si es Arma: Tipo(string) Nombre(string) Valor(float) Peso(float) Cantidad(int) Favorito(bool) Daño(int)
+  2. Si es Atuendo: Tipo(string) Nombre(string) Valor(float) Peso(float) Cantidad(int) Favorito(bool) Proteccion(int)
+  3. Si es cualquier otro tipo de objeto: Tipo(string) Nombre(string) Valor(float) Peso(float) Cantidad(int) Favorito(bool)
+
+NOTA IMPORTANTE: Si por cualquier extraña razón no llegara a funcionar la función 8 (que funciona con que, si no existe un archivo de texto donde guardar los objetos del inventario entonces lo crea, y si ya existe entonces lo actualiza) en términos de actualizar la información, se recomiendo cerrar y vovler a abrir el archivo .txt, o simplemente borrar el archivo y  vovler a usar la opción 8 (donde esto sería en los casos más extremos). Pero, en general estos casos no deberían pasar, por lo que es recomendable primero revisar si se realizó correctamente la actualización.
 
 ## Intrucciones para compilar el programa
 Lo primero es descargarlo e importarlo a un porgrama que pueda correr código de C++. Luego, importas todas las clases y corres el programa. Al principio, el porgrama te pedirá que ingreses cualqueir número para inicializar el programa, pero puedes ingresar cualqueir caractér y no te causará problemas. Luego de eso se imprimirá el menú, donde seleccionarás que acción queires que el programa realic conforme al número de la acción. Por ejemplo, si queires usar la opción "Agregar Objeto" escribe 1, para "Ordenar inventario" escribe 3, y así con las demás opciones. Cada opción puede tener opciones extra, donde luego de la pregunta que se te realice para darte contexto de que acciones puedes hacer, se te mostrará una lista de las palabras que debes usar como comandos. Por ejemplo, si seleccionaste "Mostrar Inventario" y te pregunta el porgrama "¿Qué inventario quieres mostrar? (Todos, Armas, Atuendo...)" y queires que se muestren sólo las armas, escribe "Armas" (tal y como viene escrito con la primera letra en mayúscula siempre) y dale clic en enter. Y haz lo mismo con las demás opciones si es que vienen varias acciones que puedes realizar. Cuando quieras deterner el programa, tan sólo escribe n minúscula, si quieres hacer otra acción luego de termianr una, escribe y en minúscula para dejarle claro al programa que quieres hacer algo más.
 
 Aparte, si llegara a haber cualquier problema a la hora de correr el programa, puedes usar el siguiente link que te lleva a una pàgina de Replit donde tienes disponible todo el programa listo sòlo apra correrlo: https://replit.com/@JorgeOyoqui/Proyecto-Semestre-3
 
-## Comandos para compilar el programa
-### g++ para compilar el programa
+## Instrucciones para compilar el avance de proyecto
+Ejecuta el siguiente comando en la terminal:
+
 g++ main.cpp DataStructures.h Sort.cpp Sort.h Objeto.cpp Objeto.h Armas.cpp Armas.h Atuendo.cpp Atuendo.h Comida.cpp Comida.h Ingredientes.cpp Ingredientes.h Libros.cpp Libros.h Llaves.cpp Llaves.h Pociones.cpp Pociones.h Varios.cpp Varios.h -o Inventario
 
-### Para correr el programa
+## Instrucciones para ejecutar el avance de proyecto
+Ejecuta el siguiente comando en la terminal:
+
 ./Inventario
 
 ## Descripción de las entradas del proyecto
 La entrada sólo requiere al principio cualqueir número, luego cuando se despliegue el menú sólo ocupas escribir un número para seleccionar la instrucción, luego, dependiendo de la acción seleccionada, debes ingresar la información que te pide el programa hasta que termine de realizar la acción, luego te preguntará si queires realizar otra acción, de nuevo, responde con respecto a las opciones disponibles. Sigue este proceso hasta que quieras dejar de usar el programa.
 
 ## Salidas del Proyecto
-La única salida del proyecto es cuando seleccionas la opción "Mostrar Inventario" o "Buscar objeto", pues en el resto de las opciones no regresa nada y sólo se hacen modificaciones a los vectores o a los objetos dentro de estos. Así que, dependiendo de que inventario quieras que se te muestre, entonces esa será la única salida. Esto es así pues de hecho la opción de mostrar inventario sirve más que nada para que, luego de que el usuario alla ejecutado cualquier otra opción, pueda ver sus cambios directamente en el vector correspondiente a ese inventario; y la opciòn de buscar objeto tambièn sirve para cuando el usuario quiera comrpobar si funciones como añadir o quitar objetos realmente funcionaron.
+Las únicas salidas del proyecto son cuando se seleccionan las opciones de "Mostrar Inventario", "Buscar objeto" o "Crear Archivo de Texto"; pues en el resto de las opciones no regresa nada y sólo se hacen modificaciones a los vectores o a los objetos dentro de estos. Así que, dependiendo de que opción elijas, se le devolverán al usuario diferentes cosas:
+- Mostrar Inventario: Donde según que inventario decidas ver, se te mostrarán todos lo objetos de esa respectiva categoría, o si elijes mostrar TODOS los objetos, se te mostraran todos los objetos del inventario en general sin importar su tipo.
+- Buscar Objeto: Donde se te mostrará la información del objeto que el usuario busca (si es que el objeto existe). Es importante aclarar que es muy importante escribir correctamente el nombre del objeto y usar "_" cuando haya un espacio.
+- Crear Archivo de Texto: Donde el porgrama crea/actualiza un archivo de texto (de tipo .txt) al usaurio con toda la información de los obejtos en el inventario general.
 
 ## Desarrollo de Competencias
 De momento el proyecto busca cumplir con las siguientes competencias:
@@ -156,6 +170,12 @@ Al igual que en el punto anterior, esta función trabaja con una lista doblement
    - Pero caso: O(n)
 Pues, al ser una función que recorre todo el vector de Inventario, si este está vacío o tiene un único valor, su complejidad sería de O(1) porque sólo tendría que recorrer un elemento de la lista o devolver un mensaje que indique que el vector está vacío. Y es O(n) tanto para el peor caso como para el caso promedio porque recorre todos los demás elementos del vector para imprimirlos en un archivo de texto.
 
+##### Importar Archivo de Texto
+   - Mejor caso: O(n)
+   - Caso promedio: O(n)
+   - Pero caso: O(n)
+Pues, sin importar cual sea el caso, siempre tiene que leer n cantidad de datos según cual sea el tipo de objeto, donde estos son usados como atributos para añadir el neuvo objeto al inventario. De modo que, al recorrer todos los datos de cada línea, su complejidad se vuelve constante siempre, donde lo único que podría pasar es que en el peor de los casos se de un error debido a que se habrá insertado la infromación en un formato u orden incorrecto.
+
 ##### Dificultad Final del Programa
 Así que, para conseguir la dificultad final de mi programa, voy a definir que la dificultad de mi programa sea la de aquella función cuya dificultad es la más grande, donde esa función cuya dificultad es la mayor de todas es la del Intro Sort, teniendo una dificultad constante de O(n log n). Por ende, la dificultad final e mi programa es:
    - Mejor caso: O(n log n)
@@ -174,9 +194,9 @@ Aparte, he incorporado una función que trabaja con una lista doblemente enlazad
 Considero que este punto se cumple porque esto se impelementa sobre todo con la funciòn 7 de buscar un objeto en el inventario, pues, al encontrar el objeto, consulta la informaciòn de este como su nombre, valor, si es favorito o no y cualquier otro dato que incluya el objeto. Lo mismo con el ordenamiento con àrboles binario, pues consulta información en este caso de los objetos tipo Armas para poder ordenarlos. 
 Aparte, con la función 8 de crear un archivo de texto, el usuario puede no sólo consultar la información, sino también descargarla en su ordenador para conservarla. Así que por eso creo que este punto se cumple correctamente, debido a estas dos funciones que le permiten al usuario conocer la información de los objetos que hay en su inventario.
 #### Implementa mecanismos de lectura de archivos para cargar datos a las estructuras de manera correcta.
-Esto también considero que se cumple, pues, sobre todo con el ordenamiento de árboles binarios, se agregan los datos de las armas en una nueva lista que agrega esta información para que se pueda hacer el ordenamiento segùn los diferentes tipos de ordenamiento.
-Algo parecido pasa con la función de búsqueda, pues en esta se carga el nombre del objeto que desea buscar, por lo que esta funciòn debe de poder recibir y leer el nombre y poder compararlo con los atributos Normbre de los demàs objetos para ver si encuentra el objeto para devolver la infroamciòn y posiciòn en el inventario de este, o, en caso de no encontrarlo, informarle al usuario que no encuentra ese objeto.
-Por lo que ambas funciones pueden recibir, cargar y leer informaciòn para que puedan realizar sus respectivas funciones, por eso considero que este punto también se cumple.
+Conaidero que este punto se cumple. Tengo opciones que reciben información como el de añadir nuevo objeto, pero el que definitivamente hace cumplir este punto es la opción 9 de Importar Archivo de Texto, pues esta está especialmente dedicada a recibir información de un archivo de texto para usar esa información e incluirla en el inventario general y, según cual sea su tipo, incluir el nuevo objeto también en su respectivo inventario según su tipo de objeto. De modo que estos nuevos objetos ahora se pueden usar para el resto de las funciones del programa como Mostrar Inventario, Eliminar Objeto u Ordenar Inventario. 
+Si desea probra esta función, use el archivo "NuevosObjetos.txt" que viene incluido en este mismo repositorio, copia la ruta del archivo luego de descargarlo (si usas replit, vene una opción directa para copiar la ruta del archivo) y dásela al programa cuando te la pida luego de seleccionar usar la accion 9.
 #### Implementa mecanismos de escritura de archivos para guardar los datos de las estructuras de manera correcta.
-Este punto también se cumple, pues con la implementación de la función 8, el usuario puede crear o sobreescribir un archivo de texto que contenga la información del inventario, de modo que puede usar esa información de nuevo y conservarla a pesar de que el programa termine y toda la información dentro de este se pierda. Aparte, esto es comprobable con el nuevo archivo de "inventario.txt" que demuestra como es que se almacena la información del rpograma, de modo que imrpime la información al igual que como lo hace en el programa principal.
+Este punto también se cumple, pues con la implementación de la función 8, el usuario puede crear o sobreescribir un archivo de texto que contenga la información del inventario, de modo que puede usar esa información de nuevo y conservarla a pesar de que el programa termine y toda la información dentro de este se pierda. 
+Si desea comprobar la funcionalidad de esta opción, puede usar el archivo de "inventario.txt", que viene en este mismo repositorio, donde se demuestra como es que se almacena la información del programa, de modo que imrpime la información al igual que como lo hace en el programa principal.
 Así que, en conclusión, debido a la función 8 (usando los argumentos que ya mencioné anteriormente), considero que este punto también se cumple.
