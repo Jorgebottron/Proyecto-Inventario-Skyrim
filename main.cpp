@@ -11,13 +11,17 @@
 #include "Varios.h"
 #include "Sort.h"
 #include "DataStructures.h"
+//Donde f es de file/archivo, donde esta librería nos va a ayudar para la creación, lectura y escritura de archivos
+#include <fstream>
+//Librería para obtener la dirección de un archivo
+#include <filesystem>
+#include <stdlib.h>
 
 using namespace std;
 
 int main(){
   //Creo el vector principal qeu contendrá todos los objetos del usuario
   vector <Objeto*> inventario;
-  
   //Defino objetos default que tendrá el usuario
   //Defino las armas y un vector para las armas
   Armas Arma1("Espada_de_Hierro", 60, 10, 1, false, 30);
@@ -129,6 +133,8 @@ int main(){
     cout << "5. Quitar Favorito" << endl;
     cout << "6. Ordenar Inventario" << endl;
     cout << "7. Buscar Objeto" << endl;
+    cout << "8. Crear Archivo de Texto" << endl;
+    cout << "9. Importar Archivo de Texto" << endl;
     cin >> accion;
 
     //Se genera el código de la acción 1: agregar un objeto
@@ -573,11 +579,98 @@ int main(){
     if (!encontrado) {
         cout << "El objeto no fue encontrado en el inventario." << endl;
     }
-  }
-    //Para ver si el usuario quiere realizar alguna otra acción
+  } else if (accion == "8"){
+    // Crear y escribir en un archivo de texto la información de los objetos en el inventario
+      // Para mostrarle al usuario la ruta completa donde guarda su archivo
+      /* 
+      En resúmen, no genera una liga de la computadora actual,
+      sino que regresa una ruta en línea. Pero si tiene un 
+      compilador de c++ (como Replit), se le debería aparecer 
+      el .txt de nombre inventario entre los archivos del proyecto
+      */
+      string ruta = filesystem::current_path().string() + "/inventario.txt"; 
+      ofstream archivo("inventario.txt");
+      if (archivo.fail()) {
+        cout << "No se pudo crear/abrir el archivo" << endl;
+        exit(1);;
+      }
+      // Escribe los nombres de los objetos en el archivo
+      for (int i=0; i < inventario.size(); i++) {
+        //Para imprimir la información de todos los objetos del inventario
+        archivo << inventario[i]->printInformacion() << endl;
+      }
+      archivo.close();
+      cout << "Inventario: " << endl;
+      cout << "El inventario ha sido guardado en la ruta: " << ruta << "'" << endl; // Muestra la ruta al usuario
+
+    //Para importar información de un archivo de texto (.txt) a los vectores del programa
+  } else if (accion == "9") {
+      // Pido la ruta del archivo a importar
+      string rutaArchivo;
+      cout << "Ingresa la ruta del archivo a importar: ";
+      cin >> rutaArchivo;
+
+      // Se abre el archivo para lectura
+      ifstream archivo(rutaArchivo);
+      
+      if (archivo.fail()) {
+          cout << "No se pudo abrir el archivo" << endl;
+          continue; // Salta esta iteración y vuelve a pedir la acción
+      }
+
+      // Para leer los objetos desde el archivo y agregarlos al inventario
+      string linea;
+      while (getline(archivo, linea)) {
+          if (!linea.empty()) {
+              stringstream ss(linea);
+              string tipo, nombreObjeto;
+              float valorObjeto, pesoObjeto;
+              int cantidadObjeto;
+              bool favoritoObjeto;
+              int danoArma, proteccionAtuendo;
+
+              ss >> tipo >> nombreObjeto >> valorObjeto >> pesoObjeto >> cantidadObjeto >> favoritoObjeto;
+
+              if (tipo == "Arma") {
+                  ss >> danoArma;
+                  inventario.push_back(new Armas(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto, danoArma));
+                  inventarioArmas.push_back(new Armas(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto, danoArma));
+              } else if (tipo == "Atuendo") {
+                  ss >> proteccionAtuendo;
+                  inventario.push_back(new Atuendo(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto, proteccionAtuendo));
+                  inventarioAtuendo.push_back(new Atuendo(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto, proteccionAtuendo));
+              } else if (tipo == "Pocion") {
+                  inventario.push_back(new Pociones(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+                  inventarioPociones.push_back(new Pociones(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+              } else if (tipo == "Comida") {
+                  inventario.push_back(new Comida(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+                  inventarioComida.push_back(new Comida(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+              } else if (tipo == "Ingrediente") {
+                  inventario.push_back(new Ingredientes(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+                  inventarioIngredientes.push_back(new Ingredientes(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+              } else if (tipo == "Libro") {
+                  inventario.push_back(new Libros(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+                  inventarioLibros.push_back(new Libros(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+              } else if (tipo == "Llave") {
+                  inventario.push_back(new Llaves(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+                  inventarioLlaves.push_back(new Llaves(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+              } else if (tipo == "Varios") {
+                  inventario.push_back(new Varios(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+                  inventarioVarios.push_back(new Varios(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+              }
+          }
+        }
+        archivo.close();
+        cout << "Los objetos han sido importados al inventario." << endl;
+      }  
+    }
+
+    // Para ver si el usuario quiere realizar alguna otra acción
     cout << "¿Deseas hacer algo más? (y/n)\n" << endl;
     cin >> accion;
-  }
-  //Para terminar el programa
-  cout << "Saliendo del inventario..." << endl;
+
+    // Para terminar el programa
+    cout << "Saliendo del inventario..." << endl;
+    return 0;
+
 }

@@ -36,3 +36,11 @@ Nombre: Llave_de_Calabozo, Valor: 0.000000, Peso: 0.100000, Cantidad: 1, Favorit
 Nombre: Amatista, Valor: 160.000000, Peso: 0.100000, Cantidad: 1, Favorito: No
 
 Nombre: Huesos_de_Dragón, Valor: 30.000000, Peso: 550.000000, Cantidad: 3, Favorito: No
+
+Nombre: Excalibur, Valor: 500.000000, Peso: 35.000000, Cantidad: 1, Daño: 0, Favorito: No
+
+Nombre: Arco_de_ebano, Valor: 2500.000000, Peso: 35.000000, Cantidad: 1, Daño: 0, Favorito: No
+
+Nombre: Anillo_de_oro, Valor: 1500.000000, Peso: 0.100000, Cantidad: 3, Protección: 0, Favorito: No
+
+Nombre: Poción_de_herreria, Valor: 340.000000, Peso: 1.000000, Cantidad: 0, Favorito: No
