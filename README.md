@@ -17,16 +17,16 @@ El programa mostrará un menú donde el usuario podrá interactuar para seleccio
 En este primer avance incluyo todas las clases con las que voy a trabajar, junto con la clase Sort, que es la más importante en este avance, ya que fue solicitada específicamente. Aparte de eso, en el main hay un menú donde los usuarios pueden interactuar para decidir qué acción quieren que realice el programa.
 
 ## Descripción del Avance 2
-En este segundo avance, incluyo la aplicaciòn de estructuras de datos a mi programa. Para esto, creo un nuevo archivo llamado "DataStructures.h", donde incluyo las siguientes funciones:
+En este segundo avance, incluyo la aplicación de estructuras de datos a mi programa. Para esto, creo un nuevo archivo llamado "DataStructures.h", donde incluyo las siguientes funciones:
 1. Lista Doblemente Enlazada: Que se usa para la nueva funciòn de bùsqueda, que en el menù serìa la funciòn 7. Busca en la lista del inventario el nombre del objeto que estàs buscando, y, si lo encuentra, devuelve la infromaciòn del objeto junto con su ubicaciòn en el inventario (que serìa su ubicaciòn en la lista de Inventario".
-2. Àrboles de Bùsqueda Binaria: Donde, a pesar de que su nobmre es Àrbol de BÙSQUEDA, realmente lo uso para añadir una nueva funciòn a la funciòn 6 de ordenar los datos, donde viene la nueva opciòn de ordenarlos en ordenes de tipo Postorder, Inorder, Preorder y Level By Level (aplicable sòlo apra la forma ascendente, pues en la descendente sòlo agreguè un sòlo ordenamiento).
-Aparte de añadir todo esto esto, no mofico mucho el main màs que sòlo para agregar estas nuevas funciones, y el resto de los archivos se mantienen igual.
+2. Árboles de Bùsqueda Binaria: Donde, a pesar de que su nombre es Árbol de Búsqueda, realmente lo uso para añadir una nueva función a la función 6 de ordenar los datos, donde viene la nueva opción de ordenarlos en ordenes de tipo Postorder, Inorder, Preorder y Level By Level (aplicable sólo para la forma ascendente, pues en la descendente sólo agregué un sólo ordenamiento).
+Aparte de añadir todo esto esto, no mofico mucho el main más que sólo para agregar estas nuevas funciones, y el resto de los archivos .h y .cpp se mantienen igual.
 
 ## Descripción del Avance 3
-En este tercer avance genero un análisis detallado actualizado de cada una de las fucniones del programa (pues no puedo sacarle una complejidad definitiva para todo el programa, sino que esta debe venir según los componentes del proyecto). 
+En este tercer avance genero un análisis detallado actualizado de cada una de las funciones del programa (pues no puedo sacarle una complejidad definitiva para todo el programa, sino que esta debe venir según los componentes del proyecto, y si sacara una complejidad total tendría que ser la de la función con mayor dificultad). 
 Aparte, implemento dos nuevas funciones: 
-1. La función 8 sirve para crear archivos de texto según la infroamción almacenada en el Inventario del usuario, de modo que, cuando seleccione esta opción, el programa le generará un archivo de texto dentro de sus archivos del poryecto (por ejemplo, si trabaja en Replit, el archivo de texto aparecerá junto con el resto de los archivo .h y .cpp.
-2. La función 9 srive para importar archivos de texto donde se use la infromación dentro de este para añadir nuevos objetos al vector de inventario y, según cual sea el tipo del objeto, se añadirá también al vector correspondiente de su tipo. Algo importante a tomar en cuenta es el formato de la información dentro del .txt para que se importen correctamente los datos, de modo que se debe de escribir de la sigueinte forma (donde se sparan los datos por medio de un espacio):
+1. La función 8 sirve para crear archivos de texto según la información almacenada en el Inventario del usuario, de modo que, cuando seleccione esta opción, el programa le generará un archivo de texto dentro de sus archivos del proyecto (por ejemplo, si trabaja en Replit, el archivo de texto aparecerá junto con el resto de los archivos .h y .cpp).
+2. La función 9 sirve para importar archivos de texto donde se use la información dentro de este para añadir nuevos objetos al vector de inventario y, según cual sea el tipo del objeto, se añadirá también al vector correspondiente al de su tipo. Algo importante a tomar en cuenta es el formato de la información dentro del .txt, donde para que se importen correctamente los datos se debe seguir el siguiente formato (donde se sparan los datos por medio de un espacio):
   1. Si es Arma: Tipo(string) Nombre(string) Valor(float) Peso(float) Cantidad(int) Favorito(bool) Daño(int)
   2. Si es Atuendo: Tipo(string) Nombre(string) Valor(float) Peso(float) Cantidad(int) Favorito(bool) Proteccion(int)
   3. Si es cualquier otro tipo de objeto: Tipo(string) Nombre(string) Valor(float) Peso(float) Cantidad(int) Favorito(bool)
@@ -51,14 +51,13 @@ Ejecuta el siguiente comando en la terminal:
 ## Descripción de las entradas del proyecto
 La entrada sólo requiere al principio cualqueir número, luego cuando se despliegue el menú sólo ocupas escribir un número para seleccionar la instrucción, luego, dependiendo de la acción seleccionada, debes ingresar la información que te pide el programa hasta que termine de realizar la acción, luego te preguntará si queires realizar otra acción, de nuevo, responde con respecto a las opciones disponibles. Sigue este proceso hasta que quieras dejar de usar el programa.
 
-## Salidas del Proyecto
+## Descripción de las salidas del avance de proyecto
 Las únicas salidas del proyecto son cuando se seleccionan las opciones de "Mostrar Inventario", "Buscar objeto" o "Crear Archivo de Texto"; pues en el resto de las opciones no regresa nada y sólo se hacen modificaciones a los vectores o a los objetos dentro de estos. Así que, dependiendo de que opción elijas, se le devolverán al usuario diferentes cosas:
 - Mostrar Inventario: Donde según que inventario decidas ver, se te mostrarán todos lo objetos de esa respectiva categoría, o si elijes mostrar TODOS los objetos, se te mostraran todos los objetos del inventario en general sin importar su tipo.
 - Buscar Objeto: Donde se te mostrará la información del objeto que el usuario busca (si es que el objeto existe). Es importante aclarar que es muy importante escribir correctamente el nombre del objeto y usar "_" cuando haya un espacio.
 - Crear Archivo de Texto: Donde el porgrama crea/actualiza un archivo de texto (de tipo .txt) al usaurio con toda la información de los obejtos en el inventario general.
 
 ## Desarrollo de Competencias
-De momento el proyecto busca cumplir con las siguientes competencias:
 ### SICT0301: Evalúa los componentes
 #### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
 La versión de Sort que utilizo para esta parte es una variante del Intro sort porporcionado por la librería <algorithm>. El introsory es un híbrido entre otros tres tipos de sort: quicksort, heapsort e Insertion sort. El truco de este tipo de Sort es que, dependiendo de la seituación, utiliza la metodología de un sort o de otro. Al principio, empieza como un quicksort, pero pasado cidrto límite de tamaño, pasa a trabajar como un heapsort, esto para evitar el peor caso de un quicksort que resulta ser de una complejidad muy elevada (O(n^2)).Igualmente, si la cantidad de elementos resulta ser menor al esperado, cambia a funcionar como un usertion sort. Así que, en pocas palabras, se adapta al tamaño de los elementos a ordenar para funcionar como un tipo de sort en específico, de modo que en ningún caso supere el nivel de complejidad de O(n log  n).
