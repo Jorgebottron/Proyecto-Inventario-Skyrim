@@ -73,7 +73,7 @@ La versión de Sort que utilizo para esta parte es una variante del Intro sort p
     - Mejor caso: O(1)
     - Caso promedio: O(1)
     - Peor Caso: O(1)
-  Pues sólo se ontienen el primer dato de la lista, de modo que sin importar el caso, siempre tomará ese primer dato sin tener que recorrer más de la lista, y si a lista estuviera vacía, entocnes s´´olo mandaría un mensaje indicando ese hecho.
+  Pues sólo se ontienen el primer dato de la lista, de modo que sin importar el caso, siempre tomará ese primer dato sin tener que recorrer más de la lista, y si a lista estuviera vacía, entocnes sólo mandaría un mensaje indicando ese hecho.
 
   - get(): Para obtener un la información de un dato en una posición de una lista.
     - Mejor caso: O(1)
@@ -84,15 +84,15 @@ La versión de Sort que utilizo para esta parte es una variante del Intro sort p
  ##### Segunda estructura de datos: Árbol de Búsqueda Binaria
   - add(): Para agregar un valor al árbol binario, de modo que al añadirse también se ordene con respecto a los demás datos.
     - Mejor caso: O(1)
-    - Caso promedio: O(log n)
-    - Pero caso: O(log n)
-  Pues, al agregar el dato, se reduce a la mitad el espacio de búsqueda para ver en qué posición colocar el nuevo dato. Debido a ello, en todos menos en el mejor de los casos la dificultad es de O(log n). La razón por la que el mejor de los casos tiene una dificultad O(1), es porque apenas entre no es necesario seguir revisando donde ponerlo, peus ya está en la posición donde debería.
+    - Caso promedio: O(n)
+    - Pero caso: O(n)
+  Pues, al agregar el dato, se deben recorrer n nodos del árbol para encontrar el lugar correspondiente donde debe agregarse el nuevo objeto añadido. La razón por la que el mejor de los casos tiene una dificultad O(1) es porque apenas entre no es necesario seguir revisando donde ponerlo, peus ya está en la posición donde debería.
 
   - find(): Para encontrar un dato y consultar su información en un árbol binario.
     - Mejor caso: O(1)
-    - Caso promedio: O(log n)
-    - Pero caso: O(log n)
-   Pues, al igual que en el add, en el mejor de los casos encontramos el dato que buscamos al inicio de la lista, y en los otros dos casos se reduce a la mitad el espacio de búsqueda para encontrar el dato deseado.
+    - Caso promedio: O(n)
+    - Pero caso: O(n)
+   Pues, al igual que en el add, en el mejor de los casos encontramos el dato que buscamos al inicio de la lista, y en los otros dos casos se deben recorrer n nodos para encontrar el objeto deseado.
 
   - Inorder(): Método de ordenamiento para árboles donde primero visitamos su rama izquierda, luego su nodo y luego la rama derecha.
       - Mejor caso: O(n)
