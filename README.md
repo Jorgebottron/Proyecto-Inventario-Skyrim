@@ -118,6 +118,54 @@ La versión de Sort que utilizo para esta parte es una variante del Intro sort p
       - Pero caso: O(n)
   Pues, al ser un método de ordenamiento, debe cursar por cada nodo y rama del árbol para ordenarlos. Por ello, sin importar de que caso hablemos, la complejidad sigue siendo la misma, donde sólo varía el tamaño de árbol.
 
+- visit(): Función que hace una recorrido a cada nodo del árbol, visitando uno a la vez.
+      - Mejor caso: O(1)
+      - Caso promedio: O(n)
+      - Pero caso: O(n)
+  Pues, en el mejor de los casos solo abría un dato o el árbol estaría vacío, y en el pero de los casos de debe recorrer cada uno de los nodos de este, por lo que al tener n nodos, se realizan n visitas, haciendo que su complejidad sea de O(n) tanto en el caso promedio como en el peor de los casos.
+
+- visitDescendant(): Función para visitar los hijos del árbol, de modo que se puedan visitar tanto los hijos derechos como izquierdos.
+      - Mejor caso: O(1)
+      - Caso promedio: O(n)
+      - Pero caso: O(n)
+  Pues, en el mejor de los casos el árbol no tendría hijos, y en el caso promedio y en el peor de los casos, se tiene que repetir esta función n veces para los n hijos del árbol.
+
+  - size(): Función para obtener el tamaño del árbol en base a la cantidad de nodos que tenga.
+      - Mejor caso: O(n)
+      - Caso promedio: O(n)
+      - Pero caso: O(n)
+  Pues, en todos los casos, la función se debe repetir n veces para visitar los n nodos.
+
+  - getAtIndex(): Método 
+        - Mejor caso: O(n)
+        - Caso promedio: O(n)
+        - Pero caso: O(n)
+    Pues, al
+
+  - getAtIndexAux(): Función
+      - Mejor caso: O(n)
+      - Caso promedio: O(n)
+      - Pero caso: O(n)
+    Pues, al
+
+- deleteNode(): Método 
+      - Mejor caso: O(n)
+      - Caso promedio: O(n)
+      - Pero caso: O(n)
+    Pues, al
+
+- deleteNodeAux(): Método 
+      - Mejor caso: O(n)
+      - Caso promedio: O(n)
+      - Pero caso: O(n)
+    Pues, al
+
+- findMin(): Método 
+      - Mejor caso: O(n)
+      - Caso promedio: O(n)
+      - Pero caso: O(n)
+    Pues, al
+
 #### Hace un análisis de complejidad correcto y completo para todos los demás componentes del programa y determina la complejidad final del programa.
 Para este apartado es necesario que especifique que este programa trabaja con diferentes aplicaiones, de modo que cada una hace una labor diferente y, por ende, tiende una complejidad distinta a las demás. Por lo que, para hacer este análisis de complejidad final del programa, es necesario dividir ql programa en los distintos componentes y funciones que lo conforman:
  ##### Agregar Objeto
