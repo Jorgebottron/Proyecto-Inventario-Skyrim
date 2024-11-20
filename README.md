@@ -136,35 +136,35 @@ La versión de Sort que utilizo para esta parte es una variante del Intro sort p
       - Pero caso: O(n)
   Pues, en todos los casos, la función se debe repetir n veces para visitar los n nodos.
 
-  - getAtIndex(): Método 
-        - Mejor caso: O(n)
+  - getAtIndex(): Función que devuelve la información de un elemento que ocupa una posición específica en el árbol ya ordenado por el método inorder
+        - Mejor caso: O(log n)
         - Caso promedio: O(n)
         - Pero caso: O(n)
-    Pues, al
+    Pues, si se trata de un árbol balanceado, para pasar de la raíz al nodo deseado sólo ocuparía O(log n), pero si no está balanceado, entonces en el caso promedio o en el peor de los casos dería de una dificultad O(n), pues tendría que repetir el ciclo n veces para encontrar y devolver la información del objeto deseado.
 
-  - getAtIndexAux(): Función
-      - Mejor caso: O(n)
+  - getAtIndexAux(): Función que aprovecha el método recursivo para encontrar un índice en específico en el recorrido inorder.
+      - Mejor caso: O(log n)
       - Caso promedio: O(n)
       - Pero caso: O(n)
-    Pues, al
+    Pues, al igual que en el getAtIndex, si se trata de un árbol balanceado, se reduce en gran medida los nodos a visitar del árbol, en cambio, si no está balanceado, se requeriría realizar la misma operación n veces para encontrar el nodo deseado.
 
-- deleteNode(): Método 
-      - Mejor caso: O(n)
+- deleteNode(): Función que busca y elimina un nodo en específico en el árbol.
+      - Mejor caso: O(log n)
       - Caso promedio: O(n)
       - Pero caso: O(n)
-    Pues, al
+    Pues, si se trata de un árbol balanceado, la cantidad de recorridos necesarios para encontrar el nodo a eliminar disminuye. Y si no es balanceado se ocuparán recorrer n nodos hasta encontrar el nodo deseado. 
 
-- deleteNodeAux(): Método 
-      - Mejor caso: O(n)
+- deleteNodeAux(): Función que usa el método recursivo para realizar la lógica de elimar un objeto del árbol InventarioBST.
+      - Mejor caso: O(log n)
       - Caso promedio: O(n)
       - Pero caso: O(n)
-    Pues, al
+    Pues, al tener la misma lógica que las fuunciones anteriores, la búsqeuda disminuye si se trata de un árbol balanceado, y si no, se usa esta función n veces hasta encontrar el nodo a eliminar.
 
-- findMin(): Método 
-      - Mejor caso: O(n)
+- findMin(): Función que encuentra el nodo con el menor valor en el árbol.
+      - Mejor caso: O(1)
       - Caso promedio: O(n)
       - Pero caso: O(n)
-    Pues, al
+    Pues, en el mejor de los casos, en menor nodo puede ser el primero que encuentre el programa, pero en los otros casos se tendrían que visitar los n nodos para encontrar el que tenga el menor valor en el nodo.
 
 #### Hace un análisis de complejidad correcto y completo para todos los demás componentes del programa y determina la complejidad final del programa.
 Para este apartado es necesario que especifique que este programa trabaja con diferentes aplicaiones, de modo que cada una hace una labor diferente y, por ende, tiende una complejidad distinta a las demás. Por lo que, para hacer este análisis de complejidad final del programa, es necesario dividir ql programa en los distintos componentes y funciones que lo conforman:
