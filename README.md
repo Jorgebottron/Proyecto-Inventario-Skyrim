@@ -223,6 +223,12 @@ Pues, al ser una función que recorre todo el vector de Inventario, si este est�
    - Pero caso: O(n)
 Pues, sin importar cual sea el caso, siempre tiene que leer n cantidad de datos según cual sea el tipo de objeto, donde estos son usados como atributos para añadir el neuvo objeto al inventario. De modo que, al recorrer todos los datos de cada línea, su complejidad se vuelve constante siempre, donde lo único que podría pasar es que en el peor de los casos se de un error debido a que se habrá insertado la infromación en un formato u orden incorrecto.
 
+##### Salir del Inventario
+   - Mejor caso: O(1)
+   - Caso promedio: O(1)
+   - Pero caso: O(1)
+Pues la única labor de esta fucnión es terminar el programa, de modo que rompe el ciclo while. Por ende, y por no realizar otras acciones de recorridos, ni búsqueda ni nada más, tiene una complejidad constante de O(1), porque sin importar el caso, sólo se debe ejecutar una vez para romper el ciclo while que mantiene el programa para terminarlo. 
+
 ##### Dificultad Final del Programa
 Así que, para conseguir la dificultad final de mi programa, voy a definir que la dificultad de mi programa sea la de aquella función cuya dificultad es la más grande, donde esa función cuya dificultad es la mayor de todas es la del Intro Sort, teniendo una dificultad constante de O(n log n). Por ende, la dificultad final e mi programa es:
    - Mejor caso: O(n log n)
