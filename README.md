@@ -119,9 +119,9 @@ La versión de Sort que utilizo para esta parte es una variante del Intro sort p
   Pues, al ser un método de ordenamiento, debe cursar por cada nodo y rama del árbol para ordenarlos. Por ello, sin importar de que caso hablemos, la complejidad sigue siendo la misma, donde sólo varía el tamaño de árbol.
 
 - visit(): Función que hace una recorrido a cada nodo del árbol, visitando uno a la vez.
-      - Mejor caso: O(1)
-      - Caso promedio: O(n)
-      - Pero caso: O(n)
+    - Mejor caso: O(1)
+    - Caso promedio: O(n)
+    - Peor caso: O(n)
   Pues, en el mejor de los casos solo abría un dato o el árbol estaría vacío, y en el pero de los casos de debe recorrer cada uno de los nodos de este, por lo que al tener n nodos, se realizan n visitas, haciendo que su complejidad sea de O(n) tanto en el caso promedio como en el peor de los casos.
 
 - visitDescendant(): Función para visitar los hijos del árbol, de modo que se puedan visitar tanto los hijos derechos como izquierdos.
