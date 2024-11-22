@@ -84,7 +84,7 @@ La versión de Sort que utilizo para esta parte es una variante del Intro sort p
  ##### Segunda estructura de datos: Árbol de Búsqueda Binaria
   - add(): Para agregar un valor al árbol binario, de modo que al añadirse también se ordene con respecto a los demás datos.
     - Mejor caso: O(1)
-    - Caso promedio: O(n)
+    - Caso promedio: O(log n)
     - Pero caso: O(n)
   Pues, al agregar el dato, se deben recorrer n nodos del árbol para encontrar el lugar correspondiente donde debe agregarse el nuevo objeto añadido. La razón por la que el mejor de los casos tiene una dificultad O(1) es porque apenas entre no es necesario seguir revisando donde ponerlo, peus ya está en la posición donde debería.
 
@@ -171,7 +171,7 @@ Para este apartado es necesario que especifique que este programa trabaja con di
  ##### Agregar Objeto
    - Mejor caso: O(1)
    - Caso promedio: O(1)
-   - Pero caso: O(1)
+   - Peor caso: O(1)
 Pues al final sólo está agregando un objeto al final de un vector, por lo que no necesita hacer ningún recorrido o hacer varias operaciones múltiples veces, sino tan sólo hacer una única operación que sería esa de agregar el nuevo objeto al final de su respectivo vector y en el vector de "Inventario".
  
  ##### Eliminar Objeto
@@ -240,8 +240,9 @@ Así que, para conseguir la dificultad final de mi programa, voy a definir que l
 Para el desarrollo de mi proyecto, decidí trabajar con la función sort que viene en la librería <algorithm> de C++. La razón de mi elección es porque, como mencioné anteriormente, es un híbrido de tres sorts diferentes, por lo que escogí trabajar con un sort adaptativo a la cantidad de elementos, de modo que la complejidad temporal no cambia y se mantiene constante sin importar el caso. Justamente por eso decidí trabajar con este sort. Aparte de esto, este sort me permitió ordenar de diferentes formas una gran variedad de objetos según caracterísitcas como el nombre, el daño, defensa o valor de un objeto, de modo que me permite trabajar con características únicas de ciertos objetos y trabajar también con palabras, no sólo con números, lo que resultó ser también muy útil para la elaboración de mi proyecto.
 
 #### Selecciona una estructura de datos adecuada al problema y la usa correctamente.
-- Lista Doblemente Ligada: La escogí debido a su capacidad de recorrer la lista tanto hacia delante como para atrás, siendo útil para la búsqueda de los Objetos en el Inventario. Igualmente, la escogí debido a su razonable completidad temporal para la búsqueda (siendo esta de O(n)) y su igualemente razonable complejidad espacial (O(n)), donde no consume más espacio del que debería para hacer una búsqueda que recorre una lista. La aplicación de esta estructura de datos se puede ver en la opción 7 de búscar un objeto.
-- Árbol de Búsqueda Binaria: La escogí debido a su razonable complejidad temporal (de máximo O(n)) y a su razonable complejidad espacial (de máximo O(n)), donde no supera el espacio ni tiempo que debería para recorrer los n objetos del inventario.
+- Lista Doblemente Ligada: La escogí debido a su capacidad de recorrer la lista tanto hacia delante como para atrás, siendo útil para la búsqueda de los Objetos en el Inventario. Igualmente, la escogí debido a su razonable complejidad temporal para la búsqueda (siendo esta de O(n)) y su igualmente razonable complejidad espacial (O(n)), donde no consume más espacio del que debería para hacer una búsqueda que recorre una lista de tamaño n. La aplicación de esta estructura de datos se puede ver en la opción 7 de buscar un objeto.
+  
+- Árbol de Búsqueda Binaria: La escogí debido a su razonable complejidad temporal (de máximo O(n)) y a su razonable complejidad espacial (de máximo O(n)), donde no supera el espacio ni tiempo que debería para recorrer los n objetos del inventario, al igual que lo escogí por su buena complejidad temporal para funciones como las de inserción, eliminación y accesibilidad a los datos (de complejidad temporal razonable que no supera el O(n)), lo que me resulta útil para las diferentes funciones que usa mi proyecto (como las opciones 1,2,8 y 9).
 
 ### SICT0303: Implementa acciones científicas
 #### Implementa mecanismos para consultar información de las estructras correctos.
