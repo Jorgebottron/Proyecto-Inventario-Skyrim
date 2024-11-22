@@ -130,19 +130,19 @@ La versión de Sort que utilizo para esta parte es una variante del Intro sort p
       - Pero caso: O(n)
   Pues, en el mejor de los casos el árbol no tendría hijos, y en el caso promedio y en el peor de los casos, se tiene que repetir esta función n veces para los n hijos del árbol.
 
-  - size(): Función para obtener el tamaño del árbol en base a la cantidad de nodos que tenga.
+- size(): Función para obtener el tamaño del árbol en base a la cantidad de nodos que tenga.
       - Mejor caso: O(n)
       - Caso promedio: O(n)
       - Pero caso: O(n)
   Pues, en todos los casos, la función se debe repetir n veces para visitar los n nodos.
 
-  - getAtIndex(): Función que devuelve la información de un elemento que ocupa una posición específica en el árbol ya ordenado por el método inorder
+- getAtIndex(): Función que devuelve la información de un elemento que ocupa una posición específica en el árbol ya ordenado por el método inorder
         - Mejor caso: O(log n)
         - Caso promedio: O(n)
         - Pero caso: O(n)
     Pues, si se trata de un árbol balanceado, para pasar de la raíz al nodo deseado sólo ocuparía O(log n), pero si no está balanceado, entonces en el caso promedio o en el peor de los casos dería de una dificultad O(n), pues tendría que repetir el ciclo n veces para encontrar y devolver la información del objeto deseado.
 
-  - getAtIndexAux(): Función que aprovecha el método recursivo para encontrar un índice en específico en el recorrido inorder.
+- getAtIndexAux(): Función que aprovecha el método recursivo para encontrar un índice en específico en el recorrido inorder.
       - Mejor caso: O(log n)
       - Caso promedio: O(n)
       - Pero caso: O(n)
