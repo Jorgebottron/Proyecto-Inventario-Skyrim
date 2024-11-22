@@ -6,7 +6,8 @@
 #include <queue>
 #include <list>
 #include <string>
-#include "Armas.h"
+#include <vector>
+#include "Objeto.h"
 using namespace std;
 
 // DLink Class
@@ -69,14 +70,14 @@ public:
 template <class T>
 class TreeNode {
 public:
-    Armas* value;
+    Objeto* value;
     TreeNode<T>* left;
     TreeNode<T>* right;
 
-    TreeNode(Armas* val);
-    TreeNode(Armas* val, TreeNode<T>* le, TreeNode<T>* ri);
-    void add(Armas* val);
-    bool find(Armas* val);
+    TreeNode(Objeto* val);
+    TreeNode(Objeto* val, TreeNode<T>* le, TreeNode<T>* ri);
+    void add(Objeto* val);
+    bool find(Objeto* val);
     void inorder(stringstream& aux) const;
     void preorder(stringstream& aux) const;
     void postorder(stringstream& aux) const;
@@ -97,14 +98,21 @@ private:
 public:
     BST();
     bool empty() const;
-    void add(Armas* val);
-    bool find(Armas* val) const;
-    std::string inorder() const;
-    std::string preorder() const;
-    std::string postorder() const;
-    std::string levelByLevel() const;
-    std::string visit() const;
-    std::string visitDescendant() const;
+    void add(Objeto* val);
+    bool find(Objeto* val) const;
+    string inorder() const;
+    string preorder() const;
+    string postorder() const;
+    string levelByLevel() const;
+    string visit() const;
+    string visitDescendant() const;
+    int size() const;
+    Objeto* getAtIndex(int) const;
+    Objeto* getAtIndexAux(TreeNode<T>*, int, int&) const;
+    void deleteNode(Objeto* val);
+    TreeNode<T>* deleteNodeAux(TreeNode<T>* node, Objeto* val);
+    TreeNode<T>* findMin(TreeNode<T>* node);
+
 };
 
 // Implementaciones de métodos
@@ -288,13 +296,13 @@ void DListIterator<T>::operator=(T val) {
 
 // TreeNode
 template <class T>
-TreeNode<T>::TreeNode(Armas* val) : value(val), left(NULL), right(NULL) {}
+TreeNode<T>::TreeNode(Objeto* val) : value(val), left(NULL), right(NULL) {}
 
 template <class T>
-TreeNode<T>::TreeNode(Armas* val, TreeNode<T>* le, TreeNode<T>* ri) : value(val), left(le), right(ri) {}
+TreeNode<T>::TreeNode(Objeto* val, TreeNode<T>* le, TreeNode<T>* ri) : value(val), left(le), right(ri) {}
 
 template <class T>
-void TreeNode<T>::add(Armas* val) {
+void TreeNode<T>::add(Objeto* val) {
     if (val < value) {
         if (left == NULL) {
             left = new TreeNode<T>(val);
@@ -311,7 +319,7 @@ void TreeNode<T>::add(Armas* val) {
 }
 
 template <class T>
-bool TreeNode<T>::find(Armas* val) {
+bool TreeNode<T>::find(Objeto* val) {
     if (val == value) {
         return true;
     }
@@ -393,7 +401,7 @@ bool BST<T>::empty() const {
 }
 
 template <class T>
-void BST<T>::add(Armas* val) {
+void BST<T>::add(Objeto* val) {
     if (empty()) {
         root = new TreeNode<T>(val);
     } else {
@@ -402,7 +410,7 @@ void BST<T>::add(Armas* val) {
 }
 
 template <class T>
-bool BST<T>::find(Armas* val) const {
+bool BST<T>::find(Objeto* val) const {
     return !empty() && root->find(val);
 }
 
@@ -491,6 +499,97 @@ std::string BST<T>::visitDescendant() const {
     aux << "] \n";
     return aux.str();
 }
+
+template <class T>
+int BST<T>::size() const {
+    return sizeAux(root);
+}
+
+template <class T>
+int sizeAux(const TreeNode<T>* node) {
+    if (node == nullptr) {
+        return 0;
+    }
+    return 1 + sizeAux(node->left) + sizeAux(node->right);
+}
+
+template <class T>
+Objeto* BST<T>::getAtIndex(int index) const {
+    int currentIndex = 0; // Índice acumulativo inicializado.
+    return getAtIndexAux(root, index, currentIndex);
+}
+
+template <class T>
+Objeto* BST<T>::getAtIndexAux(TreeNode<T>* node, int targetIndex, int& currentIndex) const {
+    if (node == nullptr) {
+        return nullptr; // Si llegamos a un nodo vacío, no hay resultado.
+    }
+
+    // 1. Buscar en el subárbol izquierdo.
+    Objeto* leftResult = getAtIndexAux(node->left, targetIndex, currentIndex);
+    if (leftResult != nullptr) {
+        return leftResult; // Si el resultado está en la izquierda, devolverlo.
+    }
+
+    // 2. Procesar el nodo actual.
+    if (currentIndex == targetIndex) {
+        return node->value; // Si el índice actual coincide, devolver el valor.
+    }
+    currentIndex++; // Incrementar el índice después de procesar el nodo.
+
+    // 3. Buscar en el subárbol derecho.
+    return getAtIndexAux(node->right, targetIndex, currentIndex);
+}
+
+template <class T>
+void BST<T>::deleteNode(Objeto* val) {
+    if (empty()) {
+        throw std::runtime_error("El árbol está vacío, no se puede eliminar.");
+    }
+    root = deleteNodeAux(root, val);
+}
+
+template <class T>
+TreeNode<T>* BST<T>::deleteNodeAux(TreeNode<T>* node, Objeto* val) {
+    if (node == nullptr) {
+        return nullptr; // Nodo no encontrado.
+    }
+
+    if (val < node->value) {
+        node->left = deleteNodeAux(node->left, val); // Buscar en el subárbol izquierdo.
+    } else if (val > node->value) {
+        node->right = deleteNodeAux(node->right, val); // Buscar en el subárbol derecho.
+    } else {
+        // Nodo encontrado, manejar los casos:
+        if (node->left == nullptr && node->right == nullptr) {
+            delete node; // Caso 1: Nodo sin hijos.
+            return nullptr;
+        } else if (node->left == nullptr) {
+            TreeNode<T>* temp = node->right;
+            delete node; // Caso 2: Nodo con un hijo (derecho).
+            return temp;
+        } else if (node->right == nullptr) {
+            TreeNode<T>* temp = node->left;
+            delete node; // Caso 2: Nodo con un hijo (izquierdo).
+            return temp;
+        } else {
+            // Caso 3: Nodo con dos hijos.
+            TreeNode<T>* temp = findMin(node->right); // Encontrar sucesor inorden.
+            node->value = temp->value; // Reemplazar valor.
+            node->right = deleteNodeAux(node->right, temp->value); // Eliminar sucesor.
+        }
+    }
+    return node;
+}
+
+template <class T>
+TreeNode<T>* BST<T>::findMin(TreeNode<T>* node) {
+    while (node->left != nullptr) {
+        node = node->left; // Moverse al extremo izquierdo.
+    }
+    return node;
+}
+
 
 // Instanciaciones de plantillas
 template class TreeNode<int>;

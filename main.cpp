@@ -107,6 +107,7 @@ int main(){
   inventario.push_back(&Vario2);
 
   vector <Objeto*> inventarioFavoritos;
+  
 /*
   //Defino el inventario de objetos favoritos según los objetos del vector inventrio
   
@@ -117,14 +118,19 @@ int main(){
   }
 */
 
-  //Creo la acción del usuario
-  string accion;
-  cout << "Bienvenido, escribe cualquier número y presiona enter para empezar: " << endl;
-  cin >> accion;
+  //Creo un árbol que contendrá los datos del inventario
+  BST<Objeto*> inventarioBST;
+  // Agrego los objetos al árbol de búsqueda binaria
+  for (Objeto* objeto : inventario) {
+    inventarioBST.add(objeto);
+  }
 
   //El usuario elige que acción se va a realizar según la lista de acciones disponibles
+  string accion = "";
   while(accion != "n"){
-    cout << "Inventario" << endl;
+    cout << "================================" << endl;
+    cout << "           Inventario           " << endl;
+    cout << "================================" << endl;
     cout << "¿Qué desea hacer? (Escriba el número de la acción)?" << endl;
     cout << "1. Agregar Objeto" << endl;
     cout << "2. Eliminar Objeto" << endl;
@@ -135,6 +141,7 @@ int main(){
     cout << "7. Buscar Objeto" << endl;
     cout << "8. Crear Archivo de Texto" << endl;
     cout << "9. Importar Archivo de Texto" << endl;
+    cout << "10. Salir del Inventario" << endl;
     cin >> accion;
 
     //Se genera el código de la acción 1: agregar un objeto
@@ -183,6 +190,8 @@ int main(){
           } else {
             Armas* nuevaArma = new Armas(nombre, valor, peso, 1, favoritoBool, dano);
             inventarioArmas.push_back(nuevaArma);
+            inventario.push_back(nuevaArma);
+            inventarioBST.add(nuevaArma);
             break;
           }
         }
@@ -198,6 +207,8 @@ int main(){
           } else {
             Atuendo* nuevoAtuendo = new Atuendo(nombre, valor, peso, 1, favoritoBool, proteccion);
             inventarioAtuendo.push_back(nuevoAtuendo);
+            inventario.push_back(nuevoAtuendo);
+            inventarioBST.add(nuevoAtuendo);
             break;
           } 
           
@@ -211,6 +222,8 @@ int main(){
           } else {
             Pociones* nuevaPocion = new Pociones(nombre, valor, peso, 1, favoritoBool);
             inventarioPociones.push_back(nuevaPocion);
+            inventario.push_back(nuevaPocion);
+            inventarioBST.add(nuevaPocion);
             break;
           }
         }
@@ -223,6 +236,8 @@ int main(){
           } else {
             Comida* nuevaComida = new Comida(nombre, valor, peso, 1, favoritoBool);
             inventarioComida.push_back(nuevaComida);
+            inventario.push_back(nuevaComida);
+            inventarioBST.add(nuevaComida);
             break;
           }
         }
@@ -235,6 +250,8 @@ int main(){
           } else{
             Ingredientes* nuevoIngrediente = new Ingredientes(nombre, valor, peso, 1, favoritoBool);
             inventarioIngredientes.push_back(nuevoIngrediente);
+            inventario.push_back(nuevoIngrediente);
+            inventarioBST.add(nuevoIngrediente);
             break;
           }
         }
@@ -247,6 +264,8 @@ int main(){
           } else{
             Libros* nuevoLibro = new Libros(nombre, valor, peso, 1, favoritoBool);
             inventarioLibros.push_back(nuevoLibro);
+            inventario.push_back(nuevoLibro);
+            inventarioBST.add(nuevoLibro);
             break;
           }
         }
@@ -259,6 +278,8 @@ int main(){
           } else{
             Llaves* nuevaLlave = new Llaves(nombre, valor, peso, 1, favoritoBool);
             inventarioLlaves.push_back(nuevaLlave);
+            inventario.push_back(nuevaLlave);
+            inventarioBST.add(nuevaLlave);
             break;
           }
         }
@@ -271,6 +292,8 @@ int main(){
           } else{
             Varios* nuevoVario = new Varios(nombre, valor, peso, 1, favoritoBool);
             inventarioVarios.push_back(nuevoVario);
+            inventario.push_back(nuevoVario);
+            inventarioBST.add(nuevoVario);
             break;
           }
         }
@@ -289,6 +312,30 @@ int main(){
       string borrar;
       cout << "¿Qué objeto desea eliminar? (Escribe el nombre del objeto)" << endl;
       cin >> borrar;
+
+      //Para borrar el objeto del Inventario general
+      for(int i = 0; i<inventario.size(); i++){
+        if (inventario[i]->getNombre() == borrar){
+          if(inventario[i]->getCantidad() > 0){
+            inventario[i]->setCantidad(inventario[i]->getCantidad() - 1);
+          } else if(inventario[i]->getCantidad() <= 0){
+            inventario.erase(inventario.begin() + i);
+          }
+        }
+      }
+
+      //Para borrar un objeto dentro del árbol inventarioBST
+      for (int i = 0; i < inventarioBST.size(); i++) {
+          Objeto* currentItem = inventarioBST.getAtIndex(i); // Obtén el elemento en el índice i.
+          if (currentItem->getNombre() == borrar) {
+              if (currentItem->getCantidad() > 0) {
+                  currentItem->setCantidad(currentItem->getCantidad() - 1);
+              } else if (currentItem->getCantidad() <= 0) {
+                  inventarioBST.deleteNode(currentItem);
+              }
+          }
+      }
+
       //Para borrar una arma
       if(accion == "Arma"){
         for(int i = 0; i<inventarioArmas.size(); i++){
@@ -490,7 +537,7 @@ int main(){
       //Peor caso: O(n log n)
       //Caso Promedio: O(n log n)
       Sort sorter;
-      cout << "¿Cómo quieres ordenar tu inventario? (Nombre, Valor, Daño, Protección, BST_Arma(Àrbol de Bùsqueda Binaria para Armas)" << endl;
+      cout << "¿Cómo quieres ordenar tu inventario? (Nombre, Valor, Daño, Protección, BST(Árbol de Búsqueda Binaria para Armas)" << endl;
       cin >> accion;
       cout << "¿De forma Ascendente o Descendente?" << endl;
       string orden;
@@ -535,17 +582,11 @@ int main(){
         } else if (orden == "Descendente") {
           sorter.sortProtectionDescendant(inventarioAtuendo);
         } 
-      } else if(accion == "BST_Arma"){ 
-        // Creo un árbol de búsqueda binaria para las armas
-        BST<Armas*> bstArmas;
-        // Agrego las armas al BST
-        for (Armas* arma : inventarioArmas) {
-            bstArmas.add(arma);
-        }
+      } else if(accion == "BST"){
         if (orden == "Ascendente") {
-          cout << bstArmas.visit();
+          cout << inventarioBST.visit();
         } else if (orden == "Descendente") {
-          cout << bstArmas.visitDescendant();
+          cout << inventarioBST.visitDescendant();
         }
       } else{
         cout << "Opción invalida" << endl;
@@ -595,9 +636,9 @@ int main(){
         exit(1);;
       }
       // Escribe los nombres de los objetos en el archivo
-      for (int i=0; i < inventario.size(); i++) {
+      for (int i=0; i < inventarioBST.size(); i++) {
         //Para imprimir la información de todos los objetos del inventario
-        archivo << inventario[i]->printInformacion() << endl;
+        archivo << inventarioBST.getAtIndex(i)->printInformacion() << endl;
       }
       archivo.close();
       cout << "Inventario: " << endl;
@@ -631,6 +672,7 @@ int main(){
 
               ss >> tipo >> nombreObjeto >> valorObjeto >> pesoObjeto >> cantidadObjeto >> favoritoObjeto;
 
+              //Para agregar los objetos al vector Inventario
               if (tipo == "Arma") {
                   ss >> danoArma;
                   inventario.push_back(new Armas(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto, danoArma));
@@ -658,19 +700,47 @@ int main(){
                   inventario.push_back(new Varios(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
                   inventarioVarios.push_back(new Varios(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
               }
+
+            //Para agregar los objeto al árbol Inventario
+            if (tipo == "Arma") {
+              ss >> danoArma;
+              inventarioBST.add(new Armas(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto, danoArma));
+            } else if (tipo == "Atuendo") {
+              ss >> proteccionAtuendo;
+                 inventarioBST.add(new Atuendo(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto, proteccionAtuendo));
+            } else if (tipo == "Pocion") {
+                 inventarioBST.add(new Pociones(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+            } else if (tipo == "Comida") {
+                 inventarioBST.add(new Comida(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+            } else if (tipo == "Ingrediente") {
+                 inventarioBST.add(new Ingredientes(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+            } else if (tipo == "Libro") {
+                 inventarioBST.add(new Libros(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+            } else if (tipo == "Llave") {
+                 inventarioBST.add(new Llaves(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+            } else if (tipo == "Varios") {
+                 inventarioBST.add(new Varios(nombreObjeto, valorObjeto, pesoObjeto, cantidadObjeto, favoritoObjeto));
+            }
           }
         }
         archivo.close();
         cout << "Los objetos han sido importados al inventario." << endl;
-      }  
+
+      //Para salir del Inventario y terminar el programa
+      } else if (accion == "10"){
+            cout << "" << endl;
+            cout << "Saliendo del inventario..." << endl;
+          break;
+          }
+        // Para ver si el usuario quiere realizar alguna otra acción
+        cout << "¿Deseas hacer algo más? (y/n)\n" << endl;
+        cin >> accion;
+      }
+
+      if (accion == "n"){
+        cout << "" << endl;
+        cout << "Saliendo del inventario..." << endl;
+      }
+      //Para terminar el programa
+      return 0;
     }
-
-    // Para ver si el usuario quiere realizar alguna otra acción
-    cout << "¿Deseas hacer algo más? (y/n)\n" << endl;
-    cin >> accion;
-
-    // Para terminar el programa
-    cout << "Saliendo del inventario..." << endl;
-    return 0;
-
-}
