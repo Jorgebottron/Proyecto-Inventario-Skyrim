@@ -241,7 +241,7 @@ Para el desarrollo de mi proyecto, decidí trabajar con la función sort que vie
 
 #### Selecciona una estructura de datos adecuada al problema y la usa correctamente.
 - Lista Doblemente Ligada: La escogí debido a su capacidad de recorrer la lista tanto hacia delante como para atrás, siendo útil para la búsqueda de los Objetos en el Inventario. Igualmente, la escogí debido a su razonable completidad temporal para la búsqueda (siendo esta de O(n)) y su igualemente razonable complejidad espacial (O(n)), donde no consume más espacio del que debería para hacer una búsqueda que recorre una lista. La aplicación de esta estructura de datos se puede ver en la opción 7 de búscar un objeto.
-- Árbol de Búsquesa: La escogí debido a su razonable complejidad temporal (de máximo O(n)) y a su razonable complejidad espacial (de máximo O(n)), donde no supera el espacio ni tiempo que debería para recorrer los n objetos del inventario.
+- Árbol de Búsqueda Binaria: La escogí debido a su razonable complejidad temporal (de máximo O(n)) y a su razonable complejidad espacial (de máximo O(n)), donde no supera el espacio ni tiempo que debería para recorrer los n objetos del inventario.
 
 ### SICT0303: Implementa acciones científicas
 #### Implementa mecanismos para consultar información de las estructras correctos.
